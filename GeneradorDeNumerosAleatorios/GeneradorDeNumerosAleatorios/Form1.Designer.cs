@@ -40,6 +40,7 @@
             this.btnCalculate = new System.Windows.Forms.Button();
             this.lstGeneratedNums = new System.Windows.Forms.ListBox();
             this.gbGenerator = new System.Windows.Forms.GroupBox();
+            this.btnValorNuevo = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblM = new System.Windows.Forms.Label();
             this.lblC = new System.Windows.Forms.Label();
@@ -175,6 +176,7 @@
             // 
             // gbGenerator
             // 
+            this.gbGenerator.Controls.Add(this.btnValorNuevo);
             this.gbGenerator.Controls.Add(this.tableLayoutPanel1);
             this.gbGenerator.Controls.Add(this.btnGenerate);
             this.gbGenerator.Controls.Add(this.btnClean);
@@ -185,6 +187,16 @@
             this.gbGenerator.TabIndex = 0;
             this.gbGenerator.TabStop = false;
             this.gbGenerator.Text = "Generador";
+            // 
+            // btnValorNuevo
+            // 
+            this.btnValorNuevo.Location = new System.Drawing.Point(120, 221);
+            this.btnValorNuevo.Name = "btnValorNuevo";
+            this.btnValorNuevo.Size = new System.Drawing.Size(75, 23);
+            this.btnValorNuevo.TabIndex = 3;
+            this.btnValorNuevo.Text = "Uno mas";
+            this.btnValorNuevo.UseVisualStyleBackColor = true;
+            this.btnValorNuevo.Click += new System.EventHandler(this.BtnValorNuevo_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -289,6 +301,7 @@
             this.cmbGenerator.Size = new System.Drawing.Size(150, 21);
             this.cmbGenerator.TabIndex = 4;
             this.cmbGenerator.ValueMember = "1";
+            this.cmbGenerator.SelectionChangeCommitted += new System.EventHandler(this.CmbGenerator_SelectionChangeCommitted);
             // 
             // txtA
             // 
@@ -326,6 +339,7 @@
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(150, 20);
             this.txtQuantity.TabIndex = 5;
+            this.txtQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // lblQuantity
             // 
@@ -373,7 +387,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(804, 421);
+            this.tabPage2.Size = new System.Drawing.Size(603, 418);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -433,6 +447,7 @@
         private System.Windows.Forms.Label lblGenerator;
         private System.Windows.Forms.Label lblQuantity;
         private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.Button btnValorNuevo;
     }
 }
 

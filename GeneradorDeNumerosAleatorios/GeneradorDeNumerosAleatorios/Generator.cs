@@ -44,12 +44,21 @@ namespace GeneradorDeNumerosAleatorios
             {
                 decimal rnd = ((this.a * this.seed) + this.c) % this.M;
                 this.seed = rnd;
-                rnd = rnd / this.M;
+                rnd = rnd / (this.M -1 );
                 rnd = Math.Truncate(rnd * 10000) / 10000;
                 result.Add(rnd);
             }
 
             return result;
+        }
+
+        public decimal SingleGenerate()
+        {
+            decimal rnd = ((this.a * this.seed) + this.c) % this.M;
+            this.seed = rnd;
+            rnd = rnd / (this.M - 1);
+            rnd = Math.Truncate(rnd * 10000) / 10000;
+            return rnd;
         }
     }
 }
