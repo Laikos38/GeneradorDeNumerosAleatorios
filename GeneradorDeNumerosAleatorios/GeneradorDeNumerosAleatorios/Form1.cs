@@ -8,28 +8,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+//Revisar bien las validaciones de los txts, hay alguno que no pueden recibir 0 o se rompe todo.
+
 namespace GeneradorDeNumerosAleatorios
 {
     public partial class TP1 : Form
     {
+        private Generator generator = new Generator();
         public TP1()
         {
             InitializeComponent();
             this.cmbGenerator.SelectedIndex = 0;
+            btnValorNuevo.Visible = false;
         }
 
         private void chkModifyValues_CheckedChanged(object sender, EventArgs e)
         {
             if (this.chkModifyValues.Checked)
             {
+                if (cmbGenerator.SelectedIndex == 1) //Opcion: Congruente multiplicativo
+                {
+                    this.txtC.Text = "0";
+                    this.txtC.Enabled = false;
+                }
+                else //Opcion: Congruente mixto
+                {
+                    this.txtC.Enabled = true;
+                }
                 this.txtSeed.Enabled = true;
                 this.txtA.Enabled = true;
-                this.txtC.Enabled = true;
                 this.txtM.Enabled = true;
                 this.cmbGenerator.Enabled = true;
             }
             else
             {
+                if (cmbGenerator.SelectedIndex == 0) //Opcion: Congruente mixto
+                {
+                    this.txtC.Text = "56822";
+                }
                 this.txtSeed.Enabled = false;
                 this.txtA.Enabled = false;
                 this.txtC.Enabled = false;
@@ -37,9 +54,7 @@ namespace GeneradorDeNumerosAleatorios
                 this.cmbGenerator.Enabled = false;
                 this.txtSeed.Text = "31767";
                 this.txtA.Text = "71561";
-                this.txtC.Text = "56822";
                 this.txtM.Text = "341157";
-                this.cmbGenerator.SelectedIndex = 0;
             }
         }
 
@@ -51,7 +66,9 @@ namespace GeneradorDeNumerosAleatorios
                 this.txtA.Text = "";
                 this.txtC.Text = "";
                 this.txtM.Text = "";
+                this.txtQuantity.Text = "";
                 this.cmbGenerator.SelectedIndex = 0;
+                this.txtC.Enabled = true;
             }
             else
             {
@@ -62,19 +79,21 @@ namespace GeneradorDeNumerosAleatorios
                 this.txtQuantity.Text = "";
                 this.cmbGenerator.SelectedIndex = 0;
             }
+            
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-            Generator generator = new Generator(); ;
 
             if(string.IsNullOrEmpty(this.txtSeed.Text) || string.IsNullOrEmpty(this.txtA.Text) ||
-                string.IsNullOrEmpty(this.txtC.Text) || string.IsNullOrEmpty(this.txtM.Text) || string.IsNullOrEmpty(this.txtQuantity.Text))
+                string.IsNullOrEmpty(this.txtC.Text) || string.IsNullOrEmpty(this.txtM.Text) || string.IsNullOrEmpty(this.txtQuantity.Text)
+                || (Convert.ToInt32(this.txtQuantity.Text) <= 0))
             {
                 MessageBox.Show("Ingrese todos los campos necesarios.","Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
+                btnValorNuevo.Visible = true;
                 generator.seed = Convert.ToDecimal(this.txtSeed.Text);
                 generator.a = Convert.ToDecimal(this.txtA.Text);
                 generator.c = Convert.ToDecimal(this.txtC.Text);
@@ -98,10 +117,34 @@ namespace GeneradorDeNumerosAleatorios
                 e.Handled = true;
             }
 
-            // only allow one decimal point
+            // Unicamente un punto decimal
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void BtnValorNuevo_Click(object sender, EventArgs e)
+        {
+            decimal rnd = generator.SingleGenerate();
+            this.lstGeneratedNums.Items.Add(rnd);
+        }
+
+        private void CmbGenerator_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cmbGenerator.SelectedIndex == 1) //Opción congruente multiplicativo en el combo.
+            {
+                txtC.Enabled = false;
+                txtC.Text = "0";
+            }
+            else
+            {
+                if (!this.chkModifyValues.Checked)
+                {
+                    txtC.Text = "56822";
+                }
+                txtC.Enabled = true;
+                txtC.Text = "";
             }
         }
     }
