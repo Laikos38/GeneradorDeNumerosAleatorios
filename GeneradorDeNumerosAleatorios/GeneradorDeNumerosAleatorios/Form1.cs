@@ -93,18 +93,27 @@ namespace GeneradorDeNumerosAleatorios
             }
             else
             {
-                btnValorNuevo.Visible = true;
-                generator.seed = Convert.ToDecimal(this.txtSeed.Text);
-                generator.a = Convert.ToDecimal(this.txtA.Text);
-                generator.c = Convert.ToDecimal(this.txtC.Text);
-                generator.M = Convert.ToDecimal(this.txtM.Text);
-                int q = Convert.ToInt32(this.txtQuantity.Text);
-
-                this.lstGeneratedNums.Items.Clear();
-                foreach (decimal rnd in generator.Generate(q))
+                if (this.txtSeed.Text == "0" || this.txtM.Text == "0")
                 {
-                    this.lstGeneratedNums.Items.Add(rnd);
+                    MessageBox.Show("Los parámetros 'Semilla' o 'M' no pueden tener valor 0. Intente nuevamente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
+                else 
+                {
+                    btnValorNuevo.Visible = true;
+                    generator.seed = Convert.ToDecimal(this.txtSeed.Text);
+                    generator.a = Convert.ToDecimal(this.txtA.Text);
+                    generator.c = Convert.ToDecimal(this.txtC.Text);
+                    generator.M = Convert.ToDecimal(this.txtM.Text);
+                    int q = Convert.ToInt32(this.txtQuantity.Text);
+
+                    this.lstGeneratedNums.Items.Clear();
+                    foreach (decimal rnd in generator.Generate(q))
+                    {
+                        this.lstGeneratedNums.Items.Add(rnd);
+                    }
+                }
+                
             }
 
         }
