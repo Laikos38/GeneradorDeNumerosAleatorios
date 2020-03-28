@@ -18,12 +18,11 @@ namespace GeneradorDeNumerosAleatorios
 
             Intervalo[] intervalos = new Intervalo[k];
             double acum = 0;
-            double kaux = k;
             for (int j = 0; j < k; j++)
             {
                 intervalos[j] = new Intervalo(0, 0);
                 intervalos[j].LimInf = (double) acum;
-                acum += 1/kaux;
+                acum += 1/(double)k;
                 intervalos[j].LimSup = (double) acum;                
             }
 
@@ -31,10 +30,9 @@ namespace GeneradorDeNumerosAleatorios
 
             for (int i = 0; i < n; i++)
             {
-                double num = serie[i];
                 foreach (Intervalo interv in intervalos)
                 {
-                    if (interv.belongsToMe(num))
+                    if (interv.belongsToMe(serie[i]))
                     {
                         interv.contador += 1;
                         break;

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -168,19 +169,33 @@ namespace GeneradorDeNumerosAleatorios
 
             else
             {
-                List<double> randomList = new List<double>();
-                int q = Convert.ToInt32(this.txtNumChi.Text);
-                int subInt = Convert.ToInt32(this.txtSubintervChi.Text);
-
-                randomList = GenerateRandomChi(q);
-
-                ChiCuadrado chi2 = new ChiCuadrado();
-                
-                foreach(Intervalo inter in chi2.getFrequencies(randomList, subInt))
+                if (this.txtSubintervChi.Text.Equals("0"))
                 {
-                    Console.WriteLine(inter.contador);
+                    MessageBox.Show("La cantidad de subintervalos debe ser mayor a cero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }            
+                else
+                {
+                    List<double> randomList = new List<double>();
+                    int q = Convert.ToInt32(this.txtNumChi.Text);
+                    int subInt = Convert.ToInt32(this.txtSubintervChi.Text);
+
+                    randomList = GenerateRandomChi(q);
+
+                    ChiCuadrado chi2 = new ChiCuadrado();
+                    Intervalo[] intervalos = new Intervalo[subInt];
+                    intervalos = chi2.getFrequencies(randomList, subInt);
+
+                    //int[] arrFreq = new int[subInt];
+                    //int j = 0;
+                    foreach (Intervalo inter in intervalos)
+                    {
+                        Console.WriteLine(inter.contador);
+                    }
+
+                    this.chartFreq.DataSource = intervalos;
+                }
+                
+            }     
         }
 
         private List<double> GenerateRandomChi(int q)
@@ -205,6 +220,11 @@ namespace GeneradorDeNumerosAleatorios
                 long q = Convert.ToInt64(this.txtNumChi.Text);
                 this.txtSubintervChi.Text = Math.Round(Math.Sqrt(q)).ToString();
             }
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

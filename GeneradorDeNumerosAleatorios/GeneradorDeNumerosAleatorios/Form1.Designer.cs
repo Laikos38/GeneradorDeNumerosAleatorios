@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.tabChiCuadrado = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -58,13 +62,14 @@
             this.btnClean = new System.Windows.Forms.Button();
             this.chkModifyValues = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chartFreq = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSubintervChi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumChi = new System.Windows.Forms.TextBox();
             this.btnGenerarChi = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.tabChiCuadrado.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -73,6 +78,7 @@
             this.gbGenerator.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartFreq)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -393,6 +399,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.chartFreq);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -402,6 +409,32 @@
             this.tabPage2.Text = "Test Chi Cuadrado";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // chartFreq
+            // 
+            this.chartFreq.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.Name = "ChartArea1";
+            this.chartFreq.ChartAreas.Add(chartArea1);
+            this.chartFreq.DataSource = this.chartFreq.Series;
+            legend1.Name = "Legend1";
+            this.chartFreq.Legends.Add(legend1);
+            this.chartFreq.Location = new System.Drawing.Point(28, 142);
+            this.chartFreq.Name = "chartFreq";
+            this.chartFreq.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series3";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series2";
+            this.chartFreq.Series.Add(series1);
+            this.chartFreq.Series.Add(series2);
+            this.chartFreq.Size = new System.Drawing.Size(569, 253);
+            this.chartFreq.TabIndex = 3;
+            this.chartFreq.Text = "chart1";
+            this.chartFreq.Click += new System.EventHandler(this.chart1_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label3);
@@ -410,12 +443,22 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtNumChi);
             this.groupBox1.Controls.Add(this.btnGenerarChi);
-            this.groupBox1.Location = new System.Drawing.Point(364, 6);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(233, 224);
+            this.groupBox1.Size = new System.Drawing.Size(495, 130);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parámetros";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(20, 69);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(181, 24);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "(considere que el método es más adecuado\r\n para muestras de 30 o más elementos)";
             // 
             // label2
             // 
@@ -428,17 +471,17 @@
             // 
             // txtSubintervChi
             // 
-            this.txtSubintervChi.Location = new System.Drawing.Point(155, 111);
+            this.txtSubintervChi.Location = new System.Drawing.Point(401, 40);
             this.txtSubintervChi.Name = "txtSubintervChi";
             this.txtSubintervChi.Size = new System.Drawing.Size(61, 20);
-            this.txtSubintervChi.TabIndex = 4;
+            this.txtSubintervChi.TabIndex = 1;
             this.txtSubintervChi.Enter += new System.EventHandler(this.txtSubintervChi_Enter);
             this.txtSubintervChi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 111);
+            this.label1.Location = new System.Drawing.Point(266, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 13);
             this.label1.TabIndex = 1;
@@ -449,34 +492,24 @@
             this.txtNumChi.Location = new System.Drawing.Point(155, 37);
             this.txtNumChi.Name = "txtNumChi";
             this.txtNumChi.Size = new System.Drawing.Size(61, 20);
-            this.txtNumChi.TabIndex = 3;
+            this.txtNumChi.TabIndex = 0;
             this.txtNumChi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // btnGenerarChi
             // 
-            this.btnGenerarChi.Location = new System.Drawing.Point(155, 175);
+            this.btnGenerarChi.Location = new System.Drawing.Point(401, 79);
             this.btnGenerarChi.Name = "btnGenerarChi";
-            this.btnGenerarChi.Size = new System.Drawing.Size(61, 23);
-            this.btnGenerarChi.TabIndex = 0;
+            this.btnGenerarChi.Size = new System.Drawing.Size(61, 25);
+            this.btnGenerarChi.TabIndex = 2;
             this.btnGenerarChi.Text = "Generar";
             this.btnGenerarChi.UseVisualStyleBackColor = true;
             this.btnGenerarChi.Click += new System.EventHandler(this.btnGenerarChi_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 69);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(181, 24);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "(considere que el método es más adecuado\r\n para muestras de 30 o más elementos)";
             // 
             // TP1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 461);
+            this.ClientSize = new System.Drawing.Size(632, 464);
             this.Controls.Add(this.tabChiCuadrado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -494,6 +527,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartFreq)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -538,6 +572,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSubintervChi;
         private System.Windows.Forms.Label label3;
+        protected System.Windows.Forms.DataVisualization.Charting.Chart chartFreq;
     }
 }
 
