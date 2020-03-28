@@ -156,5 +156,55 @@ namespace GeneradorDeNumerosAleatorios
                 txtC.Text = "";
             }
         }
+
+        private void btnGenerarChi_Click(object sender, EventArgs e)
+        {
+            
+
+            if(String.IsNullOrEmpty(this.txtNumChi.Text) || String.IsNullOrEmpty(this.txtSubintervChi.Text))
+            {
+                MessageBox.Show("Debe llenar los parámetros obligatorios antes de generar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            else
+            {
+                List<double> randomList = new List<double>();
+                int q = Convert.ToInt32(this.txtNumChi.Text);
+                int subInt = Convert.ToInt32(this.txtSubintervChi.Text);
+
+                randomList = GenerateRandomChi(q);
+
+                ChiCuadrado chi2 = new ChiCuadrado();
+                
+                foreach(Intervalo inter in chi2.getFrequencies(randomList, subInt))
+                {
+                    Console.WriteLine(inter.contador);
+                }
+            }            
+        }
+
+        private List<double> GenerateRandomChi(int q)
+        {
+            Random rnd = new Random();
+            List<double> rndList = new List<double>();
+
+            for (int i = 0; i < q; i++)
+            {
+                double num = rnd.NextDouble();
+                rndList.Add(Math.Truncate(num * 10000) / 10000);
+                //Console.WriteLine(rndList[i]); 
+            }
+
+            return rndList;
+        }
+
+        private void txtSubintervChi_Enter(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(this.txtNumChi.Text))
+            {
+                long q = Convert.ToInt64(this.txtNumChi.Text);
+                this.txtSubintervChi.Text = Math.Round(Math.Sqrt(q)).ToString();
+            }
+        }
     }
 }
