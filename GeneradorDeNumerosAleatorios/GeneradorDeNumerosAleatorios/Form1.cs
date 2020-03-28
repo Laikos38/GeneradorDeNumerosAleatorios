@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -155,6 +156,75 @@ namespace GeneradorDeNumerosAleatorios
                 txtC.Enabled = true;
                 txtC.Text = "";
             }
+        }
+
+        private void btnGenerarChi_Click(object sender, EventArgs e)
+        {
+            
+
+            if(String.IsNullOrEmpty(this.txtNumChi.Text) || String.IsNullOrEmpty(this.txtSubintervChi.Text))
+            {
+                MessageBox.Show("Debe llenar los parámetros obligatorios antes de generar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            else
+            {
+                if (this.txtSubintervChi.Text.Equals("0"))
+                {
+                    MessageBox.Show("La cantidad de subintervalos debe ser mayor a cero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    List<double> randomList = new List<double>();
+                    int q = Convert.ToInt32(this.txtNumChi.Text);
+                    int subInt = Convert.ToInt32(this.txtSubintervChi.Text);
+
+                    randomList = GenerateRandomChi(q);
+
+                    ChiCuadrado chi2 = new ChiCuadrado();
+                    Intervalo[] intervalos = new Intervalo[subInt];
+                    intervalos = chi2.getFrequencies(randomList, subInt);
+
+                    //int[] arrFreq = new int[subInt];
+                    //int j = 0;
+                    foreach (Intervalo inter in intervalos)
+                    {
+                        Console.WriteLine(inter.contador);
+                    }
+
+                    this.chartFreq.DataSource = intervalos;
+                }
+                
+            }     
+        }
+
+        private List<double> GenerateRandomChi(int q)
+        {
+            Random rnd = new Random();
+            List<double> rndList = new List<double>();
+
+            for (int i = 0; i < q; i++)
+            {
+                double num = rnd.NextDouble();
+                rndList.Add(Math.Truncate(num * 10000) / 10000);
+                //Console.WriteLine(rndList[i]); 
+            }
+
+            return rndList;
+        }
+
+        private void txtSubintervChi_Enter(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(this.txtNumChi.Text))
+            {
+                long q = Convert.ToInt64(this.txtNumChi.Text);
+                this.txtSubintervChi.Text = Math.Round(Math.Sqrt(q)).ToString();
+            }
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
