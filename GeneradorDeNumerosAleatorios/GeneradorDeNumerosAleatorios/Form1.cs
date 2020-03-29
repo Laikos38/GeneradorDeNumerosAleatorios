@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms.DataVisualization.Charting;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -114,12 +113,11 @@ namespace GeneradorDeNumerosAleatorios
 
                     this.lstGeneratedNums.Items.Clear();
                     var randomList = generator.Generate(q);
-                    for (int i = 0; i < randomList.Count; i++)
+                    /*for (int i = 0; i < randomList.Count; i++) 
                     {
                         this.lstGeneratedNums.Items.Add(i + 1 + ")\t" + randomList[i]);
-                    }
+                    }*/
                 }
-                
             }
         }
 
@@ -182,14 +180,8 @@ namespace GeneradorDeNumerosAleatorios
                     List<double> randomList = new List<double>();
                     int q = Convert.ToInt32(this.txtQuantityRandom.Text);
                     int subInt = Convert.ToInt32(this.txtIntervalQuantityRandom.Text);
-
                     randomList = GenerateRandom(q);
-                    this.lstGeneratedNumsRandom.Items.Clear();
-                    //for(int i=0; i<randomList.Count; i++)
-                    //{
-                    //    this.lstGeneratedNumsRandom.Items.Add(i+1 + ")\t" + randomList[i]);
-                    //}
-
+      
                     ChiCuadrado chi2 = new ChiCuadrado();
                     Intervalo[] intervalos = new Intervalo[subInt];
                     intervalos = chi2.getFrequencies(randomList, subInt);
@@ -230,13 +222,17 @@ namespace GeneradorDeNumerosAleatorios
         {
             Random rnd = new Random();
             List<double> rndList = new List<double>();
+            StringBuilder numbersList = new StringBuilder();
 
             for (int i = 0; i < q; i++)
             {
+                
                 double num = rnd.NextDouble();
-                rndList.Add(Math.Truncate(num * 10000) / 10000);
+                num = (Math.Truncate(num * 10000) / 10000);
+                rndList.Add(num);
+                numbersList.Append((i + 1) + ")\t" + num + "\n");
             }
-
+            txtGeneratedListRandom.Text = numbersList.ToString();
             return rndList;
         }
 
