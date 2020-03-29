@@ -183,18 +183,16 @@ namespace GeneradorDeNumerosAleatorios
 
                     ChiCuadrado chi2 = new ChiCuadrado();
                     Intervalo[] intervalos = new Intervalo[subInt];
-                    intervalos = chi2.getFrequencies(randomList, subInt);
-
-                    //int[] arrFreq = new int[subInt];
-                    //int j = 0;
-                    foreach (Intervalo inter in intervalos)
+                    intervalos = chi2.getFrequencies(randomList, subInt, this.chkDistribution.Checked);
+                   
+                    foreach (Intervalo intervalo in intervalos)
                     {
-                        Console.WriteLine(inter.contador);
+                        this.chartFreq.Series["Freq observada"].Points.AddXY(
+                            "[" + Math.Round(intervalo.LimInf, 2).ToString() + " - " + Math.Round(intervalo.LimSup, 2).ToString() + ")",
+                            intervalo.contador
+                            );
                     }
-
-                    this.chartFreq.DataSource = intervalos;
-                }
-                
+                }           
             }     
         }
 
@@ -207,7 +205,6 @@ namespace GeneradorDeNumerosAleatorios
             {
                 double num = rnd.NextDouble();
                 rndList.Add(Math.Truncate(num * 10000) / 10000);
-                //Console.WriteLine(rndList[i]); 
             }
 
             return rndList;
@@ -220,11 +217,6 @@ namespace GeneradorDeNumerosAleatorios
                 long q = Convert.ToInt64(this.txtNumChi.Text);
                 this.txtSubintervChi.Text = Math.Round(Math.Sqrt(q)).ToString();
             }
-        }
-
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

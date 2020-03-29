@@ -64,6 +64,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.chartFreq = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkDistribution = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSubintervChi = new System.Windows.Forms.TextBox();
@@ -414,29 +415,31 @@
             this.chartFreq.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.AxisX.Title = "Intervalos";
+            chartArea1.AxisY.Title = "Valores";
             chartArea1.Name = "ChartArea1";
             this.chartFreq.ChartAreas.Add(chartArea1);
             this.chartFreq.DataSource = this.chartFreq.Series;
             legend1.Name = "Legend1";
             this.chartFreq.Legends.Add(legend1);
-            this.chartFreq.Location = new System.Drawing.Point(28, 142);
+            this.chartFreq.Location = new System.Drawing.Point(6, 142);
             this.chartFreq.Name = "chartFreq";
             this.chartFreq.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Series3";
+            series1.Name = "Freq observada";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
-            series2.Name = "Series2";
+            series2.Name = "Freq esperada";
             this.chartFreq.Series.Add(series1);
             this.chartFreq.Series.Add(series2);
-            this.chartFreq.Size = new System.Drawing.Size(569, 253);
+            this.chartFreq.Size = new System.Drawing.Size(569, 270);
             this.chartFreq.TabIndex = 3;
             this.chartFreq.Text = "chart1";
-            this.chartFreq.Click += new System.EventHandler(this.chart1_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkDistribution);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtSubintervChi);
@@ -445,16 +448,28 @@
             this.groupBox1.Controls.Add(this.btnGenerarChi);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(495, 130);
+            this.groupBox1.Size = new System.Drawing.Size(454, 130);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parámetros";
+            // 
+            // chkDistribution
+            // 
+            this.chkDistribution.AutoSize = true;
+            this.chkDistribution.Checked = true;
+            this.chkDistribution.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkDistribution.Location = new System.Drawing.Point(294, 25);
+            this.chkDistribution.Name = "chkDistribution";
+            this.chkDistribution.Size = new System.Drawing.Size(138, 17);
+            this.chkDistribution.TabIndex = 8;
+            this.chkDistribution.Text = "Distribuir uniformemente";
+            this.chkDistribution.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 69);
+            this.label3.Location = new System.Drawing.Point(21, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(181, 24);
             this.label3.TabIndex = 7;
@@ -463,7 +478,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 40);
+            this.label2.Location = new System.Drawing.Point(19, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 13);
             this.label2.TabIndex = 6;
@@ -471,9 +486,9 @@
             // 
             // txtSubintervChi
             // 
-            this.txtSubintervChi.Location = new System.Drawing.Point(401, 40);
+            this.txtSubintervChi.Location = new System.Drawing.Point(179, 56);
             this.txtSubintervChi.Name = "txtSubintervChi";
-            this.txtSubintervChi.Size = new System.Drawing.Size(61, 20);
+            this.txtSubintervChi.Size = new System.Drawing.Size(87, 20);
             this.txtSubintervChi.TabIndex = 1;
             this.txtSubintervChi.Enter += new System.EventHandler(this.txtSubintervChi_Enter);
             this.txtSubintervChi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
@@ -481,7 +496,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(266, 40);
+            this.label1.Location = new System.Drawing.Point(20, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 13);
             this.label1.TabIndex = 1;
@@ -489,15 +504,15 @@
             // 
             // txtNumChi
             // 
-            this.txtNumChi.Location = new System.Drawing.Point(155, 37);
+            this.txtNumChi.Location = new System.Drawing.Point(179, 26);
             this.txtNumChi.Name = "txtNumChi";
-            this.txtNumChi.Size = new System.Drawing.Size(61, 20);
+            this.txtNumChi.Size = new System.Drawing.Size(87, 20);
             this.txtNumChi.TabIndex = 0;
             this.txtNumChi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // btnGenerarChi
             // 
-            this.btnGenerarChi.Location = new System.Drawing.Point(401, 79);
+            this.btnGenerarChi.Location = new System.Drawing.Point(371, 85);
             this.btnGenerarChi.Name = "btnGenerarChi";
             this.btnGenerarChi.Size = new System.Drawing.Size(61, 25);
             this.btnGenerarChi.TabIndex = 2;
@@ -573,6 +588,7 @@
         private System.Windows.Forms.TextBox txtSubintervChi;
         private System.Windows.Forms.Label label3;
         protected System.Windows.Forms.DataVisualization.Charting.Chart chartFreq;
+        private System.Windows.Forms.CheckBox chkDistribution;
     }
 }
 
