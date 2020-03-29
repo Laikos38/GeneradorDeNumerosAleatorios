@@ -113,9 +113,10 @@ namespace GeneradorDeNumerosAleatorios
                     int q = Convert.ToInt32(this.txtQuantity.Text);
 
                     this.lstGeneratedNums.Items.Clear();
-                    foreach (decimal rnd in generator.Generate(q))
+                    var randomList = generator.Generate(q);
+                    for (int i = 0; i < randomList.Count; i++)
                     {
-                        this.lstGeneratedNums.Items.Add(rnd);
+                        this.lstGeneratedNums.Items.Add(i + 1 + ")\t" + randomList[i]);
                     }
                 }
                 
@@ -184,9 +185,9 @@ namespace GeneradorDeNumerosAleatorios
 
                     randomList = GenerateRandom(q);
                     this.lstGeneratedNumsRandom.Items.Clear();
-                    foreach (decimal rnd in randomList)
+                    for(int i=0; i<randomList.Count; i++)
                     {
-                        this.lstGeneratedNumsRandom.Items.Add(rnd);
+                        this.lstGeneratedNumsRandom.Items.Add(i+1 + ")\t" + randomList[i]);
                     }
 
                     ChiCuadrado chi2 = new ChiCuadrado();
@@ -195,13 +196,31 @@ namespace GeneradorDeNumerosAleatorios
 
                     this.chartFreqRandom.Series["Freq observada"].Points.Clear();
                     this.chartFreqRandom.Series["Freq esperada"].Points.Clear();
+                    this.dgvChiRandom.Rows.Clear();
+                    decimal sum = 0;
                     foreach (Intervalo intervalo in intervalos)
                     {
+                        string intervalStr = intervalo.ToString();
+                        int waitedFreq = (int)(randomList.Count / intervalos.Length);
+                        decimal col4 = (decimal) Math.Round(Math.Pow(intervalo.contador - waitedFreq, 2), 4);
+                        decimal col5 = Math.Round(col4 / waitedFreq, 4);
+                        sum += col5;
+                        // Agrego points de grafico de frecuencia observada
                         this.chartFreqRandom.Series["Freq observada"].Points.AddXY(
-                            intervalo.ToString(),
+                            intervalStr,
                             intervalo.contador
                             );
-                        this.chartFreqRandom.Series["Freq esperada"].Points.Add((int)(randomList.Count/intervalos.Length));
+                        // Agrego points de grafico de frecuencia esperada
+                        this.chartFreqRandom.Series["Freq esperada"].Points.Add(waitedFreq);
+                        // Agrego fila a la tabla
+                        this.dgvChiRandom.Rows.Add(
+                            intervalStr,
+                            intervalo.contador,
+                            waitedFreq,
+                            col4,
+                            col5,
+                            sum
+                            );
                     }
                 }           
             }     

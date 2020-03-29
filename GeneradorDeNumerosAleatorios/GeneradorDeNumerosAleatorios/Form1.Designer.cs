@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.tabChiCuadrado = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -63,6 +63,10 @@
             this.chkModifyValues = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.gbChiRandom = new System.Windows.Forms.GroupBox();
+            this.lblTabuledChi = new System.Windows.Forms.Label();
+            this.lblObtainedChiSum = new System.Windows.Forms.Label();
+            this.txtObtainedSChiSum = new System.Windows.Forms.TextBox();
+            this.txtTabuledChi = new System.Windows.Forms.TextBox();
             this.lblRta = new System.Windows.Forms.Label();
             this.txtRtaRandom = new System.Windows.Forms.TextBox();
             this.dgvChiRandom = new System.Windows.Forms.DataGridView();
@@ -76,10 +80,6 @@
             this.txtIntervalQuantityRandom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtQuantityRandom = new System.Windows.Forms.TextBox();
-            this.txtTabuledChi = new System.Windows.Forms.TextBox();
-            this.txtObtainedSChiSum = new System.Windows.Forms.TextBox();
-            this.lblObtainedChiSum = new System.Windows.Forms.Label();
-            this.lblTabuledChi = new System.Windows.Forms.Label();
             this.colIntervals = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colObservableFreq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWaitedFreq = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -445,6 +445,38 @@
             this.gbChiRandom.TabStop = false;
             this.gbChiRandom.Text = "Chi Cuadrado";
             // 
+            // lblTabuledChi
+            // 
+            this.lblTabuledChi.AutoSize = true;
+            this.lblTabuledChi.Location = new System.Drawing.Point(599, 242);
+            this.lblTabuledChi.Name = "lblTabuledChi";
+            this.lblTabuledChi.Size = new System.Drawing.Size(73, 13);
+            this.lblTabuledChi.TabIndex = 10;
+            this.lblTabuledChi.Text = "Chi Tabulado:";
+            // 
+            // lblObtainedChiSum
+            // 
+            this.lblObtainedChiSum.AutoSize = true;
+            this.lblObtainedChiSum.Location = new System.Drawing.Point(599, 191);
+            this.lblObtainedChiSum.Name = "lblObtainedChiSum";
+            this.lblObtainedChiSum.Size = new System.Drawing.Size(139, 13);
+            this.lblObtainedChiSum.TabIndex = 9;
+            this.lblObtainedChiSum.Text = "Sumatoria de Chi Cuadrado:";
+            // 
+            // txtObtainedSChiSum
+            // 
+            this.txtObtainedSChiSum.Location = new System.Drawing.Point(599, 210);
+            this.txtObtainedSChiSum.Name = "txtObtainedSChiSum";
+            this.txtObtainedSChiSum.Size = new System.Drawing.Size(108, 20);
+            this.txtObtainedSChiSum.TabIndex = 8;
+            // 
+            // txtTabuledChi
+            // 
+            this.txtTabuledChi.Location = new System.Drawing.Point(599, 258);
+            this.txtTabuledChi.Name = "txtTabuledChi";
+            this.txtTabuledChi.Size = new System.Drawing.Size(108, 20);
+            this.txtTabuledChi.TabIndex = 7;
+            // 
             // lblRta
             // 
             this.lblRta.AutoSize = true;
@@ -483,24 +515,24 @@
             this.chartFreqRandom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.AxisX.Title = "Intervalos";
-            chartArea3.AxisY.Title = "Valores";
-            chartArea3.Name = "ChartArea1";
-            this.chartFreqRandom.ChartAreas.Add(chartArea3);
+            chartArea1.AxisX.Title = "Intervalos";
+            chartArea1.AxisY.Title = "Valores";
+            chartArea1.Name = "ChartArea1";
+            this.chartFreqRandom.ChartAreas.Add(chartArea1);
             this.chartFreqRandom.DataSource = this.chartFreqRandom.Series;
-            legend3.Name = "Legend1";
-            this.chartFreqRandom.Legends.Add(legend3);
+            legend1.Name = "Legend1";
+            this.chartFreqRandom.Legends.Add(legend1);
             this.chartFreqRandom.Location = new System.Drawing.Point(6, 171);
             this.chartFreqRandom.Name = "chartFreqRandom";
             this.chartFreqRandom.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Freq observada";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Freq esperada";
-            this.chartFreqRandom.Series.Add(series5);
-            this.chartFreqRandom.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Freq observada";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Freq esperada";
+            this.chartFreqRandom.Series.Add(series1);
+            this.chartFreqRandom.Series.Add(series2);
             this.chartFreqRandom.Size = new System.Drawing.Size(587, 218);
             this.chartFreqRandom.TabIndex = 3;
             this.chartFreqRandom.Text = "chart1";
@@ -596,38 +628,6 @@
             this.txtQuantityRandom.TabIndex = 0;
             this.txtQuantityRandom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
-            // txtTabuledChi
-            // 
-            this.txtTabuledChi.Location = new System.Drawing.Point(599, 258);
-            this.txtTabuledChi.Name = "txtTabuledChi";
-            this.txtTabuledChi.Size = new System.Drawing.Size(108, 20);
-            this.txtTabuledChi.TabIndex = 7;
-            // 
-            // txtObtainedSChiSum
-            // 
-            this.txtObtainedSChiSum.Location = new System.Drawing.Point(599, 210);
-            this.txtObtainedSChiSum.Name = "txtObtainedSChiSum";
-            this.txtObtainedSChiSum.Size = new System.Drawing.Size(108, 20);
-            this.txtObtainedSChiSum.TabIndex = 8;
-            // 
-            // lblObtainedChiSum
-            // 
-            this.lblObtainedChiSum.AutoSize = true;
-            this.lblObtainedChiSum.Location = new System.Drawing.Point(599, 191);
-            this.lblObtainedChiSum.Name = "lblObtainedChiSum";
-            this.lblObtainedChiSum.Size = new System.Drawing.Size(139, 13);
-            this.lblObtainedChiSum.TabIndex = 9;
-            this.lblObtainedChiSum.Text = "Sumatoria de Chi Cuadrado:";
-            // 
-            // lblTabuledChi
-            // 
-            this.lblTabuledChi.AutoSize = true;
-            this.lblTabuledChi.Location = new System.Drawing.Point(599, 242);
-            this.lblTabuledChi.Name = "lblTabuledChi";
-            this.lblTabuledChi.Size = new System.Drawing.Size(73, 13);
-            this.lblTabuledChi.TabIndex = 10;
-            this.lblTabuledChi.Text = "Chi Tabulado:";
-            // 
             // colIntervals
             // 
             this.colIntervals.HeaderText = "Intervalos";
@@ -654,7 +654,7 @@
             // 
             // colOperation2
             // 
-            this.colOperation2.HeaderText = "(col3)/fe";
+            this.colOperation2.HeaderText = "(col4)/fe";
             this.colOperation2.Name = "colOperation2";
             this.colOperation2.ReadOnly = true;
             // 
