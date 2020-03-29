@@ -70,22 +70,21 @@
             this.lblRta = new System.Windows.Forms.Label();
             this.txtRtaRandom = new System.Windows.Forms.TextBox();
             this.dgvChiRandom = new System.Windows.Forms.DataGridView();
-            this.chartFreqRandom = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lstGeneratedNumsRandom = new System.Windows.Forms.ListBox();
-            this.gbGeneratorRandom = new System.Windows.Forms.GroupBox();
-            this.btnGenerateRandom = new System.Windows.Forms.Button();
-            this.chkDistributionRandom = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblQuantityRandom = new System.Windows.Forms.Label();
-            this.txtIntervalQuantityRandom = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtQuantityRandom = new System.Windows.Forms.TextBox();
             this.colIntervals = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colObservableFreq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWaitedFreq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOperation1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colOperation2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chartFreqRandom = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lstGeneratedNumsRandom = new System.Windows.Forms.ListBox();
+            this.gbGeneratorRandom = new System.Windows.Forms.GroupBox();
+            this.btnGenerateRandom = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblQuantityRandom = new System.Windows.Forms.Label();
+            this.txtIntervalQuantityRandom = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtQuantityRandom = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.tabChiCuadrado.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -510,6 +509,42 @@
             this.dgvChiRandom.Size = new System.Drawing.Size(763, 150);
             this.dgvChiRandom.TabIndex = 4;
             // 
+            // colIntervals
+            // 
+            this.colIntervals.HeaderText = "Intervalos";
+            this.colIntervals.Name = "colIntervals";
+            this.colIntervals.ReadOnly = true;
+            // 
+            // colObservableFreq
+            // 
+            this.colObservableFreq.HeaderText = "Frec. Observable";
+            this.colObservableFreq.Name = "colObservableFreq";
+            this.colObservableFreq.ReadOnly = true;
+            // 
+            // colWaitedFreq
+            // 
+            this.colWaitedFreq.HeaderText = "Frec. Esperada";
+            this.colWaitedFreq.Name = "colWaitedFreq";
+            this.colWaitedFreq.ReadOnly = true;
+            // 
+            // colOperation1
+            // 
+            this.colOperation1.HeaderText = "(fo-fe)^2";
+            this.colOperation1.Name = "colOperation1";
+            this.colOperation1.ReadOnly = true;
+            // 
+            // colOperation2
+            // 
+            this.colOperation2.HeaderText = "(col4)/fe";
+            this.colOperation2.Name = "colOperation2";
+            this.colOperation2.ReadOnly = true;
+            // 
+            // colSum
+            // 
+            this.colSum.HeaderText = "Sumatoria";
+            this.colSum.Name = "colSum";
+            this.colSum.ReadOnly = true;
+            // 
             // chartFreqRandom
             // 
             this.chartFreqRandom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -548,7 +583,6 @@
             // gbGeneratorRandom
             // 
             this.gbGeneratorRandom.Controls.Add(this.btnGenerateRandom);
-            this.gbGeneratorRandom.Controls.Add(this.chkDistributionRandom);
             this.gbGeneratorRandom.Controls.Add(this.label3);
             this.gbGeneratorRandom.Controls.Add(this.lblQuantityRandom);
             this.gbGeneratorRandom.Controls.Add(this.txtIntervalQuantityRandom);
@@ -570,18 +604,6 @@
             this.btnGenerateRandom.Text = "Generar";
             this.btnGenerateRandom.UseVisualStyleBackColor = true;
             this.btnGenerateRandom.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnGenerateRandom_Click);
-            // 
-            // chkDistributionRandom
-            // 
-            this.chkDistributionRandom.AutoSize = true;
-            this.chkDistributionRandom.Checked = true;
-            this.chkDistributionRandom.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkDistributionRandom.Location = new System.Drawing.Point(637, 19);
-            this.chkDistributionRandom.Name = "chkDistributionRandom";
-            this.chkDistributionRandom.Size = new System.Drawing.Size(138, 17);
-            this.chkDistributionRandom.TabIndex = 8;
-            this.chkDistributionRandom.Text = "Distribuir uniformemente";
-            this.chkDistributionRandom.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -627,42 +649,6 @@
             this.txtQuantityRandom.Size = new System.Drawing.Size(138, 20);
             this.txtQuantityRandom.TabIndex = 0;
             this.txtQuantityRandom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
-            // 
-            // colIntervals
-            // 
-            this.colIntervals.HeaderText = "Intervalos";
-            this.colIntervals.Name = "colIntervals";
-            this.colIntervals.ReadOnly = true;
-            // 
-            // colObservableFreq
-            // 
-            this.colObservableFreq.HeaderText = "Frec. Observable";
-            this.colObservableFreq.Name = "colObservableFreq";
-            this.colObservableFreq.ReadOnly = true;
-            // 
-            // colWaitedFreq
-            // 
-            this.colWaitedFreq.HeaderText = "Frec. Esperada";
-            this.colWaitedFreq.Name = "colWaitedFreq";
-            this.colWaitedFreq.ReadOnly = true;
-            // 
-            // colOperation1
-            // 
-            this.colOperation1.HeaderText = "(fo-fe)^2";
-            this.colOperation1.Name = "colOperation1";
-            this.colOperation1.ReadOnly = true;
-            // 
-            // colOperation2
-            // 
-            this.colOperation2.HeaderText = "(col4)/fe";
-            this.colOperation2.Name = "colOperation2";
-            this.colOperation2.ReadOnly = true;
-            // 
-            // colSum
-            // 
-            this.colSum.HeaderText = "Sumatoria";
-            this.colSum.Name = "colSum";
-            this.colSum.ReadOnly = true;
             // 
             // TP1
             // 
@@ -734,7 +720,6 @@
         private System.Windows.Forms.TextBox txtIntervalQuantityRandom;
         private System.Windows.Forms.Label label3;
         protected System.Windows.Forms.DataVisualization.Charting.Chart chartFreqRandom;
-        private System.Windows.Forms.CheckBox chkDistributionRandom;
         private System.Windows.Forms.GroupBox gbChiRandom;
         private System.Windows.Forms.Label lblRta;
         private System.Windows.Forms.TextBox txtRtaRandom;

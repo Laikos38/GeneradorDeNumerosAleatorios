@@ -185,14 +185,14 @@ namespace GeneradorDeNumerosAleatorios
 
                     randomList = GenerateRandom(q);
                     this.lstGeneratedNumsRandom.Items.Clear();
-                    for(int i=0; i<randomList.Count; i++)
-                    {
-                        this.lstGeneratedNumsRandom.Items.Add(i+1 + ")\t" + randomList[i]);
-                    }
+                    //for(int i=0; i<randomList.Count; i++)
+                    //{
+                    //    this.lstGeneratedNumsRandom.Items.Add(i+1 + ")\t" + randomList[i]);
+                    //}
 
                     ChiCuadrado chi2 = new ChiCuadrado();
                     Intervalo[] intervalos = new Intervalo[subInt];
-                    intervalos = chi2.getFrequencies(randomList, subInt, this.chkDistributionRandom.Checked);
+                    intervalos = chi2.getFrequencies(randomList, subInt);
 
                     this.chartFreqRandom.Series["Freq observada"].Points.Clear();
                     this.chartFreqRandom.Series["Freq esperada"].Points.Clear();
