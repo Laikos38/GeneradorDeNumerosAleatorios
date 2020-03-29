@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.tabChiCuadrado = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -95,7 +95,7 @@
             this.tabChiCuadrado.Location = new System.Drawing.Point(12, 12);
             this.tabChiCuadrado.Name = "tabChiCuadrado";
             this.tabChiCuadrado.SelectedIndex = 0;
-            this.tabChiCuadrado.Size = new System.Drawing.Size(611, 444);
+            this.tabChiCuadrado.Size = new System.Drawing.Size(960, 537);
             this.tabChiCuadrado.TabIndex = 0;
             // 
             // tabPage1
@@ -106,7 +106,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(603, 418);
+            this.tabPage1.Size = new System.Drawing.Size(952, 511);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Generador";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -115,9 +115,9 @@
             // 
             this.gbCalculator.Controls.Add(this.tableLayoutPanel2);
             this.gbCalculator.Controls.Add(this.btnCalculate);
-            this.gbCalculator.Location = new System.Drawing.Point(223, 278);
+            this.gbCalculator.Location = new System.Drawing.Point(223, 294);
             this.gbCalculator.Name = "gbCalculator";
-            this.gbCalculator.Size = new System.Drawing.Size(371, 135);
+            this.gbCalculator.Size = new System.Drawing.Size(708, 210);
             this.gbCalculator.TabIndex = 1;
             this.gbCalculator.TabStop = false;
             this.gbCalculator.Text = "Calculos";
@@ -131,12 +131,12 @@
             this.tableLayoutPanel2.Controls.Add(this.lblVariance, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtAverage, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.txtVarience, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(7, 30);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(159, 57);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(344, 63);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(383, 63);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // lblAverage
@@ -161,21 +161,21 @@
             // 
             // txtAverage
             // 
-            this.txtAverage.Location = new System.Drawing.Point(175, 30);
+            this.txtAverage.Location = new System.Drawing.Point(194, 30);
             this.txtAverage.Name = "txtAverage";
             this.txtAverage.Size = new System.Drawing.Size(150, 20);
             this.txtAverage.TabIndex = 1;
             // 
             // txtVarience
             // 
-            this.txtVarience.Location = new System.Drawing.Point(175, 3);
+            this.txtVarience.Location = new System.Drawing.Point(194, 3);
             this.txtVarience.Name = "txtVarience";
             this.txtVarience.Size = new System.Drawing.Size(150, 20);
             this.txtVarience.TabIndex = 0;
             // 
             // btnCalculate
             // 
-            this.btnCalculate.Location = new System.Drawing.Point(276, 99);
+            this.btnCalculate.Location = new System.Drawing.Point(599, 170);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(75, 23);
             this.btnCalculate.TabIndex = 0;
@@ -187,7 +187,7 @@
             this.lstGeneratedNums.FormattingEnabled = true;
             this.lstGeneratedNums.Location = new System.Drawing.Point(6, 6);
             this.lstGeneratedNums.Name = "lstGeneratedNums";
-            this.lstGeneratedNums.Size = new System.Drawing.Size(211, 407);
+            this.lstGeneratedNums.Size = new System.Drawing.Size(211, 498);
             this.lstGeneratedNums.TabIndex = 2;
             // 
             // gbGenerator
@@ -199,18 +199,18 @@
             this.gbGenerator.Controls.Add(this.chkModifyValues);
             this.gbGenerator.Location = new System.Drawing.Point(223, 6);
             this.gbGenerator.Name = "gbGenerator";
-            this.gbGenerator.Size = new System.Drawing.Size(371, 266);
+            this.gbGenerator.Size = new System.Drawing.Size(708, 282);
             this.gbGenerator.TabIndex = 0;
             this.gbGenerator.TabStop = false;
             this.gbGenerator.Text = "Generador";
             // 
             // btnValorNuevo
             // 
-            this.btnValorNuevo.Location = new System.Drawing.Point(120, 221);
+            this.btnValorNuevo.Location = new System.Drawing.Point(518, 238);
             this.btnValorNuevo.Name = "btnValorNuevo";
             this.btnValorNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnValorNuevo.TabIndex = 3;
-            this.btnValorNuevo.Text = "Uno mas";
+            this.btnValorNuevo.Text = "Siguiente";
             this.btnValorNuevo.UseVisualStyleBackColor = true;
             this.btnValorNuevo.Click += new System.EventHandler(this.BtnValorNuevo_Click);
             // 
@@ -232,7 +232,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lblGenerator, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtQuantity, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.lblQuantity, 0, 5);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 42);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(117, 59);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -241,7 +241,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(344, 163);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(465, 163);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // lblM
@@ -277,7 +277,7 @@
             // txtSeed
             // 
             this.txtSeed.Enabled = false;
-            this.txtSeed.Location = new System.Drawing.Point(175, 3);
+            this.txtSeed.Location = new System.Drawing.Point(235, 3);
             this.txtSeed.Name = "txtSeed";
             this.txtSeed.Size = new System.Drawing.Size(150, 20);
             this.txtSeed.TabIndex = 0;
@@ -297,7 +297,7 @@
             // txtC
             // 
             this.txtC.Enabled = false;
-            this.txtC.Location = new System.Drawing.Point(175, 57);
+            this.txtC.Location = new System.Drawing.Point(235, 57);
             this.txtC.Name = "txtC";
             this.txtC.Size = new System.Drawing.Size(150, 20);
             this.txtC.TabIndex = 2;
@@ -312,7 +312,7 @@
             this.cmbGenerator.Items.AddRange(new object[] {
             "Congruente mixto",
             "Congruente multiplicativo"});
-            this.cmbGenerator.Location = new System.Drawing.Point(175, 111);
+            this.cmbGenerator.Location = new System.Drawing.Point(235, 111);
             this.cmbGenerator.Name = "cmbGenerator";
             this.cmbGenerator.Size = new System.Drawing.Size(150, 21);
             this.cmbGenerator.TabIndex = 4;
@@ -322,7 +322,7 @@
             // txtA
             // 
             this.txtA.Enabled = false;
-            this.txtA.Location = new System.Drawing.Point(175, 30);
+            this.txtA.Location = new System.Drawing.Point(235, 30);
             this.txtA.Name = "txtA";
             this.txtA.Size = new System.Drawing.Size(150, 20);
             this.txtA.TabIndex = 1;
@@ -332,7 +332,7 @@
             // txtM
             // 
             this.txtM.Enabled = false;
-            this.txtM.Location = new System.Drawing.Point(175, 84);
+            this.txtM.Location = new System.Drawing.Point(235, 84);
             this.txtM.Name = "txtM";
             this.txtM.Size = new System.Drawing.Size(150, 20);
             this.txtM.TabIndex = 3;
@@ -351,7 +351,7 @@
             // 
             // txtQuantity
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(175, 138);
+            this.txtQuantity.Location = new System.Drawing.Point(235, 138);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(150, 20);
             this.txtQuantity.TabIndex = 5;
@@ -369,7 +369,7 @@
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(201, 221);
+            this.btnGenerate.Location = new System.Drawing.Point(437, 238);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(75, 23);
             this.btnGenerate.TabIndex = 1;
@@ -379,7 +379,7 @@
             // 
             // btnClean
             // 
-            this.btnClean.Location = new System.Drawing.Point(282, 221);
+            this.btnClean.Location = new System.Drawing.Point(599, 238);
             this.btnClean.Name = "btnClean";
             this.btnClean.Size = new System.Drawing.Size(75, 23);
             this.btnClean.TabIndex = 2;
@@ -390,7 +390,7 @@
             // chkModifyValues
             // 
             this.chkModifyValues.AutoSize = true;
-            this.chkModifyValues.Location = new System.Drawing.Point(251, 16);
+            this.chkModifyValues.Location = new System.Drawing.Point(353, 36);
             this.chkModifyValues.Name = "chkModifyValues";
             this.chkModifyValues.Size = new System.Drawing.Size(106, 17);
             this.chkModifyValues.TabIndex = 0;
@@ -415,25 +415,25 @@
             this.chartFreq.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.AxisX.Title = "Intervalos";
-            chartArea1.AxisY.Title = "Valores";
-            chartArea1.Name = "ChartArea1";
-            this.chartFreq.ChartAreas.Add(chartArea1);
+            chartArea2.AxisX.Title = "Intervalos";
+            chartArea2.AxisY.Title = "Valores";
+            chartArea2.Name = "ChartArea1";
+            this.chartFreq.ChartAreas.Add(chartArea2);
             this.chartFreq.DataSource = this.chartFreq.Series;
-            legend1.Name = "Legend1";
-            this.chartFreq.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chartFreq.Legends.Add(legend2);
             this.chartFreq.Location = new System.Drawing.Point(6, 142);
             this.chartFreq.Name = "chartFreq";
             this.chartFreq.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Freq observada";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Freq esperada";
-            this.chartFreq.Series.Add(series1);
-            this.chartFreq.Series.Add(series2);
-            this.chartFreq.Size = new System.Drawing.Size(569, 270);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Freq observada";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Freq esperada";
+            this.chartFreq.Series.Add(series3);
+            this.chartFreq.Series.Add(series4);
+            this.chartFreq.Size = new System.Drawing.Size(572, 270);
             this.chartFreq.TabIndex = 3;
             this.chartFreq.Text = "chart1";
             // 
@@ -524,7 +524,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 464);
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.tabChiCuadrado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

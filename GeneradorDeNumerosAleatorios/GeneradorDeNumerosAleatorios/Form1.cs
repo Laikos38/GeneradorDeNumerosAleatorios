@@ -21,7 +21,7 @@ namespace GeneradorDeNumerosAleatorios
         {
             InitializeComponent();
             this.cmbGenerator.SelectedIndex = 0;
-            btnValorNuevo.Visible = false;
+            btnValorNuevo.Enabled = false;
         }
 
         private void chkModifyValues_CheckedChanged(object sender, EventArgs e)
@@ -70,6 +70,7 @@ namespace GeneradorDeNumerosAleatorios
                 this.txtQuantity.Text = "";
                 this.cmbGenerator.SelectedIndex = 0;
                 this.txtC.Enabled = true;
+                this.btnValorNuevo.Enabled = false;
             }
             else
             {
@@ -79,6 +80,7 @@ namespace GeneradorDeNumerosAleatorios
                 this.txtM.Text = "341157";
                 this.txtQuantity.Text = "";
                 this.cmbGenerator.SelectedIndex = 0;
+                this.btnValorNuevo.Enabled = false;
             }
             
         }
@@ -101,7 +103,7 @@ namespace GeneradorDeNumerosAleatorios
 
                 else 
                 {
-                    btnValorNuevo.Visible = true;
+                    btnValorNuevo.Enabled = true;
                     generator.seed = Convert.ToDecimal(this.txtSeed.Text);
                     generator.a = Convert.ToDecimal(this.txtA.Text);
                     generator.c = Convert.ToDecimal(this.txtC.Text);
