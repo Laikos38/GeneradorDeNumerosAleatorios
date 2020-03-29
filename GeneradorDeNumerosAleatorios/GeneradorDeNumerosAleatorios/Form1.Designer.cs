@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.tabChiCuadrado = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -76,6 +76,16 @@
             this.txtIntervalQuantityRandom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtQuantityRandom = new System.Windows.Forms.TextBox();
+            this.txtTabuledChi = new System.Windows.Forms.TextBox();
+            this.txtObtainedSChiSum = new System.Windows.Forms.TextBox();
+            this.lblObtainedChiSum = new System.Windows.Forms.Label();
+            this.lblTabuledChi = new System.Windows.Forms.Label();
+            this.colIntervals = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colObservableFreq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWaitedFreq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOperation1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOperation2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.tabChiCuadrado.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -420,6 +430,10 @@
             // 
             // gbChiRandom
             // 
+            this.gbChiRandom.Controls.Add(this.lblTabuledChi);
+            this.gbChiRandom.Controls.Add(this.lblObtainedChiSum);
+            this.gbChiRandom.Controls.Add(this.txtObtainedSChiSum);
+            this.gbChiRandom.Controls.Add(this.txtTabuledChi);
             this.gbChiRandom.Controls.Add(this.lblRta);
             this.gbChiRandom.Controls.Add(this.txtRtaRandom);
             this.gbChiRandom.Controls.Add(this.dgvChiRandom);
@@ -435,7 +449,7 @@
             // 
             this.lblRta.AutoSize = true;
             this.lblRta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRta.Location = new System.Drawing.Point(617, 237);
+            this.lblRta.Location = new System.Drawing.Point(599, 306);
             this.lblRta.Name = "lblRta";
             this.lblRta.Size = new System.Drawing.Size(82, 13);
             this.lblRta.TabIndex = 6;
@@ -443,16 +457,24 @@
             // 
             // txtRtaRandom
             // 
-            this.txtRtaRandom.Location = new System.Drawing.Point(605, 268);
+            this.txtRtaRandom.Location = new System.Drawing.Point(599, 322);
             this.txtRtaRandom.Name = "txtRtaRandom";
             this.txtRtaRandom.Size = new System.Drawing.Size(108, 20);
             this.txtRtaRandom.TabIndex = 5;
             // 
             // dgvChiRandom
             // 
-            this.dgvChiRandom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvChiRandom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvChiRandom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colIntervals,
+            this.colObservableFreq,
+            this.colWaitedFreq,
+            this.colOperation1,
+            this.colOperation2,
+            this.colSum});
             this.dgvChiRandom.Location = new System.Drawing.Point(12, 19);
             this.dgvChiRandom.Name = "dgvChiRandom";
+            this.dgvChiRandom.ReadOnly = true;
             this.dgvChiRandom.Size = new System.Drawing.Size(763, 150);
             this.dgvChiRandom.TabIndex = 4;
             // 
@@ -461,24 +483,24 @@
             this.chartFreqRandom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.AxisX.Title = "Intervalos";
-            chartArea1.AxisY.Title = "Valores";
-            chartArea1.Name = "ChartArea1";
-            this.chartFreqRandom.ChartAreas.Add(chartArea1);
+            chartArea3.AxisX.Title = "Intervalos";
+            chartArea3.AxisY.Title = "Valores";
+            chartArea3.Name = "ChartArea1";
+            this.chartFreqRandom.ChartAreas.Add(chartArea3);
             this.chartFreqRandom.DataSource = this.chartFreqRandom.Series;
-            legend1.Name = "Legend1";
-            this.chartFreqRandom.Legends.Add(legend1);
-            this.chartFreqRandom.Location = new System.Drawing.Point(12, 171);
+            legend3.Name = "Legend1";
+            this.chartFreqRandom.Legends.Add(legend3);
+            this.chartFreqRandom.Location = new System.Drawing.Point(6, 171);
             this.chartFreqRandom.Name = "chartFreqRandom";
             this.chartFreqRandom.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Freq observada";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Freq esperada";
-            this.chartFreqRandom.Series.Add(series1);
-            this.chartFreqRandom.Series.Add(series2);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Freq observada";
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Freq esperada";
+            this.chartFreqRandom.Series.Add(series5);
+            this.chartFreqRandom.Series.Add(series6);
             this.chartFreqRandom.Size = new System.Drawing.Size(587, 218);
             this.chartFreqRandom.TabIndex = 3;
             this.chartFreqRandom.Text = "chart1";
@@ -574,6 +596,74 @@
             this.txtQuantityRandom.TabIndex = 0;
             this.txtQuantityRandom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
+            // txtTabuledChi
+            // 
+            this.txtTabuledChi.Location = new System.Drawing.Point(599, 258);
+            this.txtTabuledChi.Name = "txtTabuledChi";
+            this.txtTabuledChi.Size = new System.Drawing.Size(108, 20);
+            this.txtTabuledChi.TabIndex = 7;
+            // 
+            // txtObtainedSChiSum
+            // 
+            this.txtObtainedSChiSum.Location = new System.Drawing.Point(599, 210);
+            this.txtObtainedSChiSum.Name = "txtObtainedSChiSum";
+            this.txtObtainedSChiSum.Size = new System.Drawing.Size(108, 20);
+            this.txtObtainedSChiSum.TabIndex = 8;
+            // 
+            // lblObtainedChiSum
+            // 
+            this.lblObtainedChiSum.AutoSize = true;
+            this.lblObtainedChiSum.Location = new System.Drawing.Point(599, 191);
+            this.lblObtainedChiSum.Name = "lblObtainedChiSum";
+            this.lblObtainedChiSum.Size = new System.Drawing.Size(139, 13);
+            this.lblObtainedChiSum.TabIndex = 9;
+            this.lblObtainedChiSum.Text = "Sumatoria de Chi Cuadrado:";
+            // 
+            // lblTabuledChi
+            // 
+            this.lblTabuledChi.AutoSize = true;
+            this.lblTabuledChi.Location = new System.Drawing.Point(599, 242);
+            this.lblTabuledChi.Name = "lblTabuledChi";
+            this.lblTabuledChi.Size = new System.Drawing.Size(73, 13);
+            this.lblTabuledChi.TabIndex = 10;
+            this.lblTabuledChi.Text = "Chi Tabulado:";
+            // 
+            // colIntervals
+            // 
+            this.colIntervals.HeaderText = "Intervalos";
+            this.colIntervals.Name = "colIntervals";
+            this.colIntervals.ReadOnly = true;
+            // 
+            // colObservableFreq
+            // 
+            this.colObservableFreq.HeaderText = "Frec. Observable";
+            this.colObservableFreq.Name = "colObservableFreq";
+            this.colObservableFreq.ReadOnly = true;
+            // 
+            // colWaitedFreq
+            // 
+            this.colWaitedFreq.HeaderText = "Frec. Esperada";
+            this.colWaitedFreq.Name = "colWaitedFreq";
+            this.colWaitedFreq.ReadOnly = true;
+            // 
+            // colOperation1
+            // 
+            this.colOperation1.HeaderText = "(fo-fe)^2";
+            this.colOperation1.Name = "colOperation1";
+            this.colOperation1.ReadOnly = true;
+            // 
+            // colOperation2
+            // 
+            this.colOperation2.HeaderText = "(col3)/fe";
+            this.colOperation2.Name = "colOperation2";
+            this.colOperation2.ReadOnly = true;
+            // 
+            // colSum
+            // 
+            this.colSum.HeaderText = "Sumatoria";
+            this.colSum.Name = "colSum";
+            this.colSum.ReadOnly = true;
+            // 
             // TP1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -651,6 +741,16 @@
         private System.Windows.Forms.DataGridView dgvChiRandom;
         private System.Windows.Forms.ListBox lstGeneratedNumsRandom;
         private System.Windows.Forms.Button btnGenerateRandom;
+        private System.Windows.Forms.Label lblTabuledChi;
+        private System.Windows.Forms.Label lblObtainedChiSum;
+        private System.Windows.Forms.TextBox txtObtainedSChiSum;
+        private System.Windows.Forms.TextBox txtTabuledChi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIntervals;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colObservableFreq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWaitedFreq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOperation1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOperation2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSum;
     }
 }
 
