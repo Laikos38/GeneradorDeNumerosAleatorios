@@ -29,7 +29,7 @@ namespace GeneradorDeNumerosAleatorios
 
         public override string ToString()
         {
-            return "\nIntervalo : LimINF" + this.LimInf.ToString() +" Lim SUP" + this.limSup.ToString();
+            return "[" + Math.Round(this.LimInf, 2).ToString() +" - " + Math.Round(this.limSup, 2).ToString() + ")";
         }
     }
 

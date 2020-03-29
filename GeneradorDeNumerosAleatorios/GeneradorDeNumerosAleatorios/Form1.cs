@@ -71,6 +71,7 @@ namespace GeneradorDeNumerosAleatorios
                 this.cmbGenerator.SelectedIndex = 0;
                 this.txtC.Enabled = true;
                 this.btnValorNuevo.Enabled = false;
+                this.lstGeneratedNums.Items.Clear();
             }
             else
             {
@@ -81,6 +82,7 @@ namespace GeneradorDeNumerosAleatorios
                 this.txtQuantity.Text = "";
                 this.cmbGenerator.SelectedIndex = 0;
                 this.btnValorNuevo.Enabled = false;
+                this.lstGeneratedNums.Items.Clear();
             }
             
         }
@@ -118,7 +120,6 @@ namespace GeneradorDeNumerosAleatorios
                 }
                 
             }
-
         }
 
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -160,48 +161,53 @@ namespace GeneradorDeNumerosAleatorios
             }
         }
 
-        private void btnGenerarChi_Click(object sender, EventArgs e)
+        private void btnGenerateRandom_Click(object sender, EventArgs e)
         {
             
 
-            if(String.IsNullOrEmpty(this.txtNumChi.Text) || String.IsNullOrEmpty(this.txtSubintervChi.Text))
+            if(String.IsNullOrEmpty(this.txtQuantityRandom.Text) || String.IsNullOrEmpty(this.txtIntervalQuantityRandom.Text))
             {
                 MessageBox.Show("Debe llenar los parámetros obligatorios antes de generar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             else
             {
-                if (this.txtSubintervChi.Text.Equals("0"))
+                if (this.txtIntervalQuantityRandom.Text.Equals("0"))
                 {
                     MessageBox.Show("La cantidad de subintervalos debe ser mayor a cero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
                     List<double> randomList = new List<double>();
-                    int q = Convert.ToInt32(this.txtNumChi.Text);
-                    int subInt = Convert.ToInt32(this.txtSubintervChi.Text);
+                    int q = Convert.ToInt32(this.txtQuantityRandom.Text);
+                    int subInt = Convert.ToInt32(this.txtIntervalQuantityRandom.Text);
 
-                    randomList = GenerateRandomChi(q);
+                    randomList = GenerateRandom(q);
+                    this.lstGeneratedNumsRandom.Items.Clear();
+                    foreach (decimal rnd in randomList)
+                    {
+                        this.lstGeneratedNumsRandom.Items.Add(rnd);
+                    }
 
                     ChiCuadrado chi2 = new ChiCuadrado();
                     Intervalo[] intervalos = new Intervalo[subInt];
-                    intervalos = chi2.getFrequencies(randomList, subInt, this.chkDistribution.Checked);
+                    intervalos = chi2.getFrequencies(randomList, subInt, this.chkDistributionRandom.Checked);
 
-                    this.chartFreq.Series["Freq observada"].Points.Clear();
-                    this.chartFreq.Series["Freq esperada"].Points.Clear();
+                    this.chartFreqRandom.Series["Freq observada"].Points.Clear();
+                    this.chartFreqRandom.Series["Freq esperada"].Points.Clear();
                     foreach (Intervalo intervalo in intervalos)
                     {
-                        this.chartFreq.Series["Freq observada"].Points.AddXY(
-                            "[" + Math.Round(intervalo.LimInf, 2).ToString() + " - " + Math.Round(intervalo.LimSup, 2).ToString() + ")",
+                        this.chartFreqRandom.Series["Freq observada"].Points.AddXY(
+                            intervalo.ToString(),
                             intervalo.contador
                             );
-                        this.chartFreq.Series["Freq esperada"].Points.Add((int)(randomList.Count/intervalos.Length));
+                        this.chartFreqRandom.Series["Freq esperada"].Points.Add((int)(randomList.Count/intervalos.Length));
                     }
                 }           
             }     
         }
 
-        private List<double> GenerateRandomChi(int q)
+        private List<double> GenerateRandom(int q)
         {
             Random rnd = new Random();
             List<double> rndList = new List<double>();
@@ -217,10 +223,10 @@ namespace GeneradorDeNumerosAleatorios
 
         private void txtSubintervChi_Enter(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(this.txtNumChi.Text))
+            if (!String.IsNullOrEmpty(this.txtQuantityRandom.Text))
             {
-                long q = Convert.ToInt64(this.txtNumChi.Text);
-                this.txtSubintervChi.Text = Math.Round(Math.Sqrt(q)).ToString();
+                long q = Convert.ToInt64(this.txtQuantityRandom.Text);
+                this.txtIntervalQuantityRandom.Text = Math.Round(Math.Sqrt(q)).ToString();
             }
         }
     }

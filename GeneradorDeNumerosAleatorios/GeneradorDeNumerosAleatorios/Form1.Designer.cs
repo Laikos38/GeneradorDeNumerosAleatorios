@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.tabChiCuadrado = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -62,15 +62,20 @@
             this.btnClean = new System.Windows.Forms.Button();
             this.chkModifyValues = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.chartFreq = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chkDistribution = new System.Windows.Forms.CheckBox();
+            this.gbChiRandom = new System.Windows.Forms.GroupBox();
+            this.lblRta = new System.Windows.Forms.Label();
+            this.txtRtaRandom = new System.Windows.Forms.TextBox();
+            this.dgvChiRandom = new System.Windows.Forms.DataGridView();
+            this.chartFreqRandom = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lstGeneratedNumsRandom = new System.Windows.Forms.ListBox();
+            this.gbGeneratorRandom = new System.Windows.Forms.GroupBox();
+            this.btnGenerateRandom = new System.Windows.Forms.Button();
+            this.chkDistributionRandom = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSubintervChi = new System.Windows.Forms.TextBox();
+            this.lblQuantityRandom = new System.Windows.Forms.Label();
+            this.txtIntervalQuantityRandom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNumChi = new System.Windows.Forms.TextBox();
-            this.btnGenerarChi = new System.Windows.Forms.Button();
+            this.txtQuantityRandom = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.tabChiCuadrado.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -79,8 +84,10 @@
             this.gbGenerator.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartFreq)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gbChiRandom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChiRandom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartFreqRandom)).BeginInit();
+            this.gbGeneratorRandom.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileSystemWatcher1
@@ -400,125 +407,172 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.chartFreq);
-            this.tabPage2.Controls.Add(this.groupBox1);
+            this.tabPage2.Controls.Add(this.gbChiRandom);
+            this.tabPage2.Controls.Add(this.lstGeneratedNumsRandom);
+            this.tabPage2.Controls.Add(this.gbGeneratorRandom);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(603, 418);
+            this.tabPage2.Size = new System.Drawing.Size(952, 511);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Test Chi Cuadrado";
+            this.tabPage2.Text = "Generador de C#";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // chartFreq
+            // gbChiRandom
             // 
-            this.chartFreq.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gbChiRandom.Controls.Add(this.lblRta);
+            this.gbChiRandom.Controls.Add(this.txtRtaRandom);
+            this.gbChiRandom.Controls.Add(this.dgvChiRandom);
+            this.gbChiRandom.Controls.Add(this.chartFreqRandom);
+            this.gbChiRandom.Location = new System.Drawing.Point(165, 109);
+            this.gbChiRandom.Name = "gbChiRandom";
+            this.gbChiRandom.Size = new System.Drawing.Size(781, 395);
+            this.gbChiRandom.TabIndex = 5;
+            this.gbChiRandom.TabStop = false;
+            this.gbChiRandom.Text = "Chi Cuadrado";
+            // 
+            // lblRta
+            // 
+            this.lblRta.AutoSize = true;
+            this.lblRta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRta.Location = new System.Drawing.Point(617, 237);
+            this.lblRta.Name = "lblRta";
+            this.lblRta.Size = new System.Drawing.Size(82, 13);
+            this.lblRta.TabIndex = 6;
+            this.lblRta.Text = "RESULTADO";
+            // 
+            // txtRtaRandom
+            // 
+            this.txtRtaRandom.Location = new System.Drawing.Point(605, 268);
+            this.txtRtaRandom.Name = "txtRtaRandom";
+            this.txtRtaRandom.Size = new System.Drawing.Size(108, 20);
+            this.txtRtaRandom.TabIndex = 5;
+            // 
+            // dgvChiRandom
+            // 
+            this.dgvChiRandom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvChiRandom.Location = new System.Drawing.Point(12, 19);
+            this.dgvChiRandom.Name = "dgvChiRandom";
+            this.dgvChiRandom.Size = new System.Drawing.Size(763, 150);
+            this.dgvChiRandom.TabIndex = 4;
+            // 
+            // chartFreqRandom
+            // 
+            this.chartFreqRandom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.AxisX.Title = "Intervalos";
-            chartArea2.AxisY.Title = "Valores";
-            chartArea2.Name = "ChartArea1";
-            this.chartFreq.ChartAreas.Add(chartArea2);
-            this.chartFreq.DataSource = this.chartFreq.Series;
-            legend2.Name = "Legend1";
-            this.chartFreq.Legends.Add(legend2);
-            this.chartFreq.Location = new System.Drawing.Point(6, 142);
-            this.chartFreq.Name = "chartFreq";
-            this.chartFreq.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Freq observada";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Freq esperada";
-            this.chartFreq.Series.Add(series3);
-            this.chartFreq.Series.Add(series4);
-            this.chartFreq.Size = new System.Drawing.Size(572, 270);
-            this.chartFreq.TabIndex = 3;
-            this.chartFreq.Text = "chart1";
+            chartArea1.AxisX.Title = "Intervalos";
+            chartArea1.AxisY.Title = "Valores";
+            chartArea1.Name = "ChartArea1";
+            this.chartFreqRandom.ChartAreas.Add(chartArea1);
+            this.chartFreqRandom.DataSource = this.chartFreqRandom.Series;
+            legend1.Name = "Legend1";
+            this.chartFreqRandom.Legends.Add(legend1);
+            this.chartFreqRandom.Location = new System.Drawing.Point(12, 171);
+            this.chartFreqRandom.Name = "chartFreqRandom";
+            this.chartFreqRandom.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Freq observada";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Freq esperada";
+            this.chartFreqRandom.Series.Add(series1);
+            this.chartFreqRandom.Series.Add(series2);
+            this.chartFreqRandom.Size = new System.Drawing.Size(587, 218);
+            this.chartFreqRandom.TabIndex = 3;
+            this.chartFreqRandom.Text = "chart1";
             // 
-            // groupBox1
+            // lstGeneratedNumsRandom
             // 
-            this.groupBox1.Controls.Add(this.chkDistribution);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtSubintervChi);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtNumChi);
-            this.groupBox1.Controls.Add(this.btnGenerarChi);
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(454, 130);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Parámetros";
+            this.lstGeneratedNumsRandom.FormattingEnabled = true;
+            this.lstGeneratedNumsRandom.Location = new System.Drawing.Point(6, 6);
+            this.lstGeneratedNumsRandom.Name = "lstGeneratedNumsRandom";
+            this.lstGeneratedNumsRandom.Size = new System.Drawing.Size(153, 498);
+            this.lstGeneratedNumsRandom.TabIndex = 4;
             // 
-            // chkDistribution
+            // gbGeneratorRandom
             // 
-            this.chkDistribution.AutoSize = true;
-            this.chkDistribution.Checked = true;
-            this.chkDistribution.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkDistribution.Location = new System.Drawing.Point(294, 25);
-            this.chkDistribution.Name = "chkDistribution";
-            this.chkDistribution.Size = new System.Drawing.Size(138, 17);
-            this.chkDistribution.TabIndex = 8;
-            this.chkDistribution.Text = "Distribuir uniformemente";
-            this.chkDistribution.UseVisualStyleBackColor = true;
+            this.gbGeneratorRandom.Controls.Add(this.btnGenerateRandom);
+            this.gbGeneratorRandom.Controls.Add(this.chkDistributionRandom);
+            this.gbGeneratorRandom.Controls.Add(this.label3);
+            this.gbGeneratorRandom.Controls.Add(this.lblQuantityRandom);
+            this.gbGeneratorRandom.Controls.Add(this.txtIntervalQuantityRandom);
+            this.gbGeneratorRandom.Controls.Add(this.label1);
+            this.gbGeneratorRandom.Controls.Add(this.txtQuantityRandom);
+            this.gbGeneratorRandom.Location = new System.Drawing.Point(165, 6);
+            this.gbGeneratorRandom.Name = "gbGeneratorRandom";
+            this.gbGeneratorRandom.Size = new System.Drawing.Size(781, 97);
+            this.gbGeneratorRandom.TabIndex = 2;
+            this.gbGeneratorRandom.TabStop = false;
+            this.gbGeneratorRandom.Text = "Parámetros";
+            // 
+            // btnGenerateRandom
+            // 
+            this.btnGenerateRandom.Location = new System.Drawing.Point(675, 53);
+            this.btnGenerateRandom.Name = "btnGenerateRandom";
+            this.btnGenerateRandom.Size = new System.Drawing.Size(75, 23);
+            this.btnGenerateRandom.TabIndex = 9;
+            this.btnGenerateRandom.Text = "Generar";
+            this.btnGenerateRandom.UseVisualStyleBackColor = true;
+            this.btnGenerateRandom.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnGenerateRandom_Click);
+            // 
+            // chkDistributionRandom
+            // 
+            this.chkDistributionRandom.AutoSize = true;
+            this.chkDistributionRandom.Checked = true;
+            this.chkDistributionRandom.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkDistributionRandom.Location = new System.Drawing.Point(637, 19);
+            this.chkDistributionRandom.Name = "chkDistributionRandom";
+            this.chkDistributionRandom.Size = new System.Drawing.Size(138, 17);
+            this.chkDistributionRandom.TabIndex = 8;
+            this.chkDistributionRandom.Text = "Distribuir uniformemente";
+            this.chkDistributionRandom.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 86);
+            this.label3.Location = new System.Drawing.Point(10, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(181, 24);
             this.label3.TabIndex = 7;
             this.label3.Text = "(considere que el método es más adecuado\r\n para muestras de 30 o más elementos)";
             // 
-            // label2
+            // lblQuantityRandom
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Numeros a generar";
+            this.lblQuantityRandom.AutoSize = true;
+            this.lblQuantityRandom.Location = new System.Drawing.Point(9, 19);
+            this.lblQuantityRandom.Name = "lblQuantityRandom";
+            this.lblQuantityRandom.Size = new System.Drawing.Size(158, 13);
+            this.lblQuantityRandom.TabIndex = 6;
+            this.lblQuantityRandom.Text = "Cantidad de números a generar:";
             // 
-            // txtSubintervChi
+            // txtIntervalQuantityRandom
             // 
-            this.txtSubintervChi.Location = new System.Drawing.Point(179, 56);
-            this.txtSubintervChi.Name = "txtSubintervChi";
-            this.txtSubintervChi.Size = new System.Drawing.Size(87, 20);
-            this.txtSubintervChi.TabIndex = 1;
-            this.txtSubintervChi.Enter += new System.EventHandler(this.txtSubintervChi_Enter);
-            this.txtSubintervChi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.txtIntervalQuantityRandom.Location = new System.Drawing.Point(470, 17);
+            this.txtIntervalQuantityRandom.Name = "txtIntervalQuantityRandom";
+            this.txtIntervalQuantityRandom.Size = new System.Drawing.Size(138, 20);
+            this.txtIntervalQuantityRandom.TabIndex = 1;
+            this.txtIntervalQuantityRandom.Enter += new System.EventHandler(this.txtSubintervChi_Enter);
+            this.txtIntervalQuantityRandom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 59);
+            this.label1.Location = new System.Drawing.Point(332, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 13);
+            this.label1.Size = new System.Drawing.Size(132, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Cantidad de subintervalos";
+            this.label1.Text = "Cantidad de subintervalos:";
             // 
-            // txtNumChi
+            // txtQuantityRandom
             // 
-            this.txtNumChi.Location = new System.Drawing.Point(179, 26);
-            this.txtNumChi.Name = "txtNumChi";
-            this.txtNumChi.Size = new System.Drawing.Size(87, 20);
-            this.txtNumChi.TabIndex = 0;
-            this.txtNumChi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
-            // 
-            // btnGenerarChi
-            // 
-            this.btnGenerarChi.Location = new System.Drawing.Point(371, 85);
-            this.btnGenerarChi.Name = "btnGenerarChi";
-            this.btnGenerarChi.Size = new System.Drawing.Size(61, 25);
-            this.btnGenerarChi.TabIndex = 2;
-            this.btnGenerarChi.Text = "Generar";
-            this.btnGenerarChi.UseVisualStyleBackColor = true;
-            this.btnGenerarChi.Click += new System.EventHandler(this.btnGenerarChi_Click);
+            this.txtQuantityRandom.Location = new System.Drawing.Point(173, 16);
+            this.txtQuantityRandom.Name = "txtQuantityRandom";
+            this.txtQuantityRandom.Size = new System.Drawing.Size(138, 20);
+            this.txtQuantityRandom.TabIndex = 0;
+            this.txtQuantityRandom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // TP1
             // 
@@ -542,9 +596,12 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartFreq)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbChiRandom.ResumeLayout(false);
+            this.gbChiRandom.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChiRandom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartFreqRandom)).EndInit();
+            this.gbGeneratorRandom.ResumeLayout(false);
+            this.gbGeneratorRandom.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -580,15 +637,20 @@
         private System.Windows.Forms.Label lblQuantity;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Button btnValorNuevo;
-        private System.Windows.Forms.TextBox txtNumChi;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtQuantityRandom;
+        private System.Windows.Forms.GroupBox gbGeneratorRandom;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnGenerarChi;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtSubintervChi;
+        private System.Windows.Forms.Label lblQuantityRandom;
+        private System.Windows.Forms.TextBox txtIntervalQuantityRandom;
         private System.Windows.Forms.Label label3;
-        protected System.Windows.Forms.DataVisualization.Charting.Chart chartFreq;
-        private System.Windows.Forms.CheckBox chkDistribution;
+        protected System.Windows.Forms.DataVisualization.Charting.Chart chartFreqRandom;
+        private System.Windows.Forms.CheckBox chkDistributionRandom;
+        private System.Windows.Forms.GroupBox gbChiRandom;
+        private System.Windows.Forms.Label lblRta;
+        private System.Windows.Forms.TextBox txtRtaRandom;
+        private System.Windows.Forms.DataGridView dgvChiRandom;
+        private System.Windows.Forms.ListBox lstGeneratedNumsRandom;
+        private System.Windows.Forms.Button btnGenerateRandom;
     }
 }
 
