@@ -184,13 +184,16 @@ namespace GeneradorDeNumerosAleatorios
                     ChiCuadrado chi2 = new ChiCuadrado();
                     Intervalo[] intervalos = new Intervalo[subInt];
                     intervalos = chi2.getFrequencies(randomList, subInt, this.chkDistribution.Checked);
-                   
+
+                    this.chartFreq.Series["Freq observada"].Points.Clear();
+                    this.chartFreq.Series["Freq esperada"].Points.Clear();
                     foreach (Intervalo intervalo in intervalos)
                     {
                         this.chartFreq.Series["Freq observada"].Points.AddXY(
                             "[" + Math.Round(intervalo.LimInf, 2).ToString() + " - " + Math.Round(intervalo.LimSup, 2).ToString() + ")",
                             intervalo.contador
                             );
+                        this.chartFreq.Series["Freq esperada"].Points.Add((int)(randomList.Count/intervalos.Length));
                     }
                 }           
             }     
