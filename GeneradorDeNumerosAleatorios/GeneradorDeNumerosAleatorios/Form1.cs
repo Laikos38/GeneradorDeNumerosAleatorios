@@ -169,20 +169,33 @@ namespace GeneradorDeNumerosAleatorios
             }
             else
             {
-                if (this.txtIntervalQuantityRandom.Text.Equals("0"))
+                int subInt = Convert.ToInt32(this.txtIntervalQuantityRandom.Text);
+
+                if (subInt == 0 || subInt > 100)
                 {
-                    MessageBox.Show("La cantidad de subintervalos debe ser mayor a cero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("La cantidad de subintervalos debe estar entre los valores permitidos (0 - 100).", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
                     int q = Convert.ToInt32(this.txtQuantityRandom.Text);
-                    int subInt = Convert.ToInt32(this.txtIntervalQuantityRandom.Text);
+                    subInt = Convert.ToInt32(this.txtIntervalQuantityRandom.Text);
                     rndList.Clear();
                     GenerateRandom(q);
       
                     ChiCuadrado chi2 = new ChiCuadrado();
                     Intervalo[] intervals = new Intervalo[subInt];
                     intervals = chi2.getFrequencies(rndList, subInt);
+
+                    double c = chi2.calcEstadistico(intervals, q);
+                    int v = subInt - 1; //No se resta m porque es 0 en este caso.
+                    double tabChi = chi2.getCriticalValue(v);
+
+                    this.txtObtainedSChiSum.Text = c.ToString();
+                    this.txtTabuledChi.Text = tabChi.ToString();
+
+                    if (c <= tabChi) this.txtRtaRandom.Text = "No se rechaza la hipótesis nula.";
+                    else this.txtRtaRandom.Text = "Se rechaza la hipótesis nula";
+
 
                     this.chartFreqRandom.Series["Freq observada"].Points.Clear();
                     this.chartFreqRandom.Series["Freq esperada"].Points.Clear();
@@ -251,6 +264,27 @@ namespace GeneradorDeNumerosAleatorios
             {
                 long q = Convert.ToInt64(this.txtQuantityRandom.Text);
                 this.txtIntervalQuantityRandom.Text = Math.Round(Math.Sqrt(q)).ToString();
+            }
+        }
+
+        private void chkChangeValues_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chkModifyValues.Checked)
+            {     
+                this.txtSeedCong.Enabled = true;
+                this.txtACong.Enabled = true;
+                this.txtMCong.Enabled = true;
+            }
+            else
+            {
+                this.txtCCong.Text = "56822"; 
+                this.txtSeedCong.Enabled = false;
+                this.txtACong.Enabled = false;
+                this.txtCCong.Enabled = false;
+                this.txtMCong.Enabled = false;               
+                this.txtSeedCong.Text = "31767";
+                this.txtACong.Text = "71561";
+                this.txtMCong.Text = "341157";
             }
         }
     }

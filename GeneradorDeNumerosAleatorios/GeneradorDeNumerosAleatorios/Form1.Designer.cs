@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabChiCuadrado = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtGeneratedNums = new System.Windows.Forms.TextBox();
@@ -86,6 +90,37 @@
             this.txtIntervalQuantityRandom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtQuantityRandom = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtSumChiCong = new System.Windows.Forms.TextBox();
+            this.txtTabChiCong = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtResultChiCong = new System.Windows.Forms.TextBox();
+            this.dgvCongruential = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chartCongruential = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkChangeValues = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtACong = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtQuantityCong = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtMCong = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtCCong = new System.Windows.Forms.TextBox();
+            this.btnGenerateCong = new System.Windows.Forms.Button();
+            this.txtSeedCong = new System.Windows.Forms.TextBox();
             this.tabChiCuadrado.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbCalculator.SuspendLayout();
@@ -97,12 +132,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiRandom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartFreqRandom)).BeginInit();
             this.gbGeneratorRandom.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCongruential)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartCongruential)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabChiCuadrado
             // 
             this.tabChiCuadrado.Controls.Add(this.tabPage1);
             this.tabChiCuadrado.Controls.Add(this.tabPage2);
+            this.tabChiCuadrado.Controls.Add(this.tabPage3);
             this.tabChiCuadrado.Location = new System.Drawing.Point(12, 12);
             this.tabChiCuadrado.Name = "tabChiCuadrado";
             this.tabChiCuadrado.SelectedIndex = 0;
@@ -516,9 +557,10 @@
             // 
             // txtRtaRandom
             // 
-            this.txtRtaRandom.Location = new System.Drawing.Point(629, 336);
+            this.txtRtaRandom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRtaRandom.Location = new System.Drawing.Point(606, 336);
             this.txtRtaRandom.Name = "txtRtaRandom";
-            this.txtRtaRandom.Size = new System.Drawing.Size(108, 20);
+            this.txtRtaRandom.Size = new System.Drawing.Size(162, 20);
             this.txtRtaRandom.TabIndex = 5;
             // 
             // dgvChiRandom
@@ -578,25 +620,25 @@
             this.chartFreqRandom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.AxisX.Interval = 1D;
-            chartArea2.AxisX.Title = "Intervalos";
-            chartArea2.AxisY.Title = "Valores";
-            chartArea2.Name = "ChartArea1";
-            this.chartFreqRandom.ChartAreas.Add(chartArea2);
+            chartArea4.AxisX.Interval = 1D;
+            chartArea4.AxisX.Title = "Intervalos";
+            chartArea4.AxisY.Title = "Valores";
+            chartArea4.Name = "ChartArea1";
+            this.chartFreqRandom.ChartAreas.Add(chartArea4);
             this.chartFreqRandom.DataSource = this.chartFreqRandom.Series;
-            legend2.Name = "Legend1";
-            this.chartFreqRandom.Legends.Add(legend2);
+            legend4.Name = "Legend1";
+            this.chartFreqRandom.Legends.Add(legend4);
             this.chartFreqRandom.Location = new System.Drawing.Point(6, 171);
             this.chartFreqRandom.Name = "chartFreqRandom";
             this.chartFreqRandom.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Freq observada";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Freq esperada";
-            this.chartFreqRandom.Series.Add(series3);
-            this.chartFreqRandom.Series.Add(series4);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Freq observada";
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Freq esperada";
+            this.chartFreqRandom.Series.Add(series7);
+            this.chartFreqRandom.Series.Add(series8);
             this.chartFreqRandom.Size = new System.Drawing.Size(769, 218);
             this.chartFreqRandom.TabIndex = 3;
             this.chartFreqRandom.Text = "chart1";
@@ -671,6 +713,317 @@
             this.txtQuantityRandom.TabIndex = 0;
             this.txtQuantityRandom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.textBox1);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Controls.Add(this.groupBox1);
+            this.tabPage3.Controls.Add(this.groupBox2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(952, 511);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Chi^2 Congruencial";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(9, 22);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(150, 476);
+            this.textBox1.TabIndex = 22;
+            this.textBox1.WordWrap = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Números generados:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtSumChiCong);
+            this.groupBox1.Controls.Add(this.txtTabChiCong);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtResultChiCong);
+            this.groupBox1.Controls.Add(this.dgvCongruential);
+            this.groupBox1.Controls.Add(this.chartCongruential);
+            this.groupBox1.Location = new System.Drawing.Point(165, 109);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(781, 395);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Chi Cuadrado";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(629, 275);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Chi Tabulado:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(629, 224);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(139, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Sumatoria de Chi Cuadrado:";
+            // 
+            // txtSumChiCong
+            // 
+            this.txtSumChiCong.Location = new System.Drawing.Point(629, 243);
+            this.txtSumChiCong.Name = "txtSumChiCong";
+            this.txtSumChiCong.Size = new System.Drawing.Size(108, 20);
+            this.txtSumChiCong.TabIndex = 8;
+            // 
+            // txtTabChiCong
+            // 
+            this.txtTabChiCong.Location = new System.Drawing.Point(629, 291);
+            this.txtTabChiCong.Name = "txtTabChiCong";
+            this.txtTabChiCong.Size = new System.Drawing.Size(108, 20);
+            this.txtTabChiCong.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(629, 320);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "RESULTADO";
+            // 
+            // txtResultChiCong
+            // 
+            this.txtResultChiCong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtResultChiCong.Location = new System.Drawing.Point(611, 336);
+            this.txtResultChiCong.Name = "txtResultChiCong";
+            this.txtResultChiCong.Size = new System.Drawing.Size(164, 20);
+            this.txtResultChiCong.TabIndex = 5;
+            // 
+            // dgvCongruential
+            // 
+            this.dgvCongruential.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCongruential.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            this.dgvCongruential.Location = new System.Drawing.Point(12, 19);
+            this.dgvCongruential.Name = "dgvCongruential";
+            this.dgvCongruential.ReadOnly = true;
+            this.dgvCongruential.Size = new System.Drawing.Size(763, 150);
+            this.dgvCongruential.TabIndex = 4;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Intervalos";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Frec. Observable";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Frec. Esperada";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "(fo-fe)^2";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "(col4)/fe";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Sumatoria";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // chartCongruential
+            // 
+            this.chartCongruential.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea5.AxisX.Interval = 1D;
+            chartArea5.AxisX.Title = "Intervalos";
+            chartArea5.AxisY.Title = "Valores";
+            chartArea5.Name = "ChartArea1";
+            this.chartCongruential.ChartAreas.Add(chartArea5);
+            this.chartCongruential.DataSource = this.chartCongruential.Series;
+            legend5.Name = "Legend1";
+            this.chartCongruential.Legends.Add(legend5);
+            this.chartCongruential.Location = new System.Drawing.Point(6, 171);
+            this.chartCongruential.Name = "chartCongruential";
+            this.chartCongruential.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Freq observada";
+            series10.ChartArea = "ChartArea1";
+            series10.Legend = "Legend1";
+            series10.Name = "Freq esperada";
+            this.chartCongruential.Series.Add(series9);
+            this.chartCongruential.Series.Add(series10);
+            this.chartCongruential.Size = new System.Drawing.Size(769, 218);
+            this.chartCongruential.TabIndex = 3;
+            this.chartCongruential.Text = "chart1";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.chkChangeValues);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.txtACong);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.txtQuantityCong);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.txtMCong);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.txtCCong);
+            this.groupBox2.Controls.Add(this.btnGenerateCong);
+            this.groupBox2.Controls.Add(this.txtSeedCong);
+            this.groupBox2.Location = new System.Drawing.Point(165, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(781, 97);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Parámetros";
+            // 
+            // chkChangeValues
+            // 
+            this.chkChangeValues.AutoSize = true;
+            this.chkChangeValues.Location = new System.Drawing.Point(540, 59);
+            this.chkChangeValues.Name = "chkChangeValues";
+            this.chkChangeValues.Size = new System.Drawing.Size(106, 17);
+            this.chkChangeValues.TabIndex = 19;
+            this.chkChangeValues.Text = "Modificar valores";
+            this.chkChangeValues.UseVisualStyleBackColor = true;
+            this.chkChangeValues.CheckedChanged += new System.EventHandler(this.chkChangeValues_CheckedChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(372, 22);
+            this.label11.Margin = new System.Windows.Forms.Padding(7);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(158, 13);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Cantidad de números a generar:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(213, 58);
+            this.label7.Margin = new System.Windows.Forms.Padding(7);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(19, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "M:";
+            // 
+            // txtACong
+            // 
+            this.txtACong.Location = new System.Drawing.Point(89, 55);
+            this.txtACong.Name = "txtACong";
+            this.txtACong.Size = new System.Drawing.Size(69, 20);
+            this.txtACong.TabIndex = 14;
+            this.txtACong.Text = "71561";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(216, 22);
+            this.label8.Margin = new System.Windows.Forms.Padding(7);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(16, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "c:";
+            // 
+            // txtQuantityCong
+            // 
+            this.txtQuantityCong.Location = new System.Drawing.Point(540, 19);
+            this.txtQuantityCong.Name = "txtQuantityCong";
+            this.txtQuantityCong.Size = new System.Drawing.Size(75, 20);
+            this.txtQuantityCong.TabIndex = 13;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(63, 58);
+            this.label9.Margin = new System.Windows.Forms.Padding(7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(16, 13);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "a:";
+            // 
+            // txtMCong
+            // 
+            this.txtMCong.Location = new System.Drawing.Point(242, 55);
+            this.txtMCong.Name = "txtMCong";
+            this.txtMCong.Size = new System.Drawing.Size(81, 20);
+            this.txtMCong.TabIndex = 12;
+            this.txtMCong.Text = "341157";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(36, 22);
+            this.label10.Margin = new System.Windows.Forms.Padding(7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(43, 13);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Semilla:";
+            // 
+            // txtCCong
+            // 
+            this.txtCCong.Location = new System.Drawing.Point(242, 19);
+            this.txtCCong.Name = "txtCCong";
+            this.txtCCong.Size = new System.Drawing.Size(81, 20);
+            this.txtCCong.TabIndex = 10;
+            this.txtCCong.Text = "56822";
+            // 
+            // btnGenerateCong
+            // 
+            this.btnGenerateCong.Location = new System.Drawing.Point(675, 53);
+            this.btnGenerateCong.Name = "btnGenerateCong";
+            this.btnGenerateCong.Size = new System.Drawing.Size(75, 23);
+            this.btnGenerateCong.TabIndex = 9;
+            this.btnGenerateCong.Text = "Generar";
+            this.btnGenerateCong.UseVisualStyleBackColor = true;
+            // 
+            // txtSeedCong
+            // 
+            this.txtSeedCong.Location = new System.Drawing.Point(89, 19);
+            this.txtSeedCong.Name = "txtSeedCong";
+            this.txtSeedCong.Size = new System.Drawing.Size(69, 20);
+            this.txtSeedCong.TabIndex = 0;
+            this.txtSeedCong.Text = "31767";
+            // 
             // TP1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -700,6 +1053,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartFreqRandom)).EndInit();
             this.gbGeneratorRandom.ResumeLayout(false);
             this.gbGeneratorRandom.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCongruential)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartCongruential)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -759,6 +1120,37 @@
         private System.Windows.Forms.Label lblGeneratedNumsRandom;
         private System.Windows.Forms.TextBox txtGeneratedNums;
         private System.Windows.Forms.TextBox txtGeneratedNumsRandom;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtSumChiCong;
+        private System.Windows.Forms.TextBox txtTabChiCong;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtResultChiCong;
+        private System.Windows.Forms.DataGridView dgvCongruential;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        protected System.Windows.Forms.DataVisualization.Charting.Chart chartCongruential;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox chkChangeValues;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtACong;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtQuantityCong;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtMCong;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtCCong;
+        private System.Windows.Forms.Button btnGenerateCong;
+        private System.Windows.Forms.TextBox txtSeedCong;
     }
 }
 
