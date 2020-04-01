@@ -16,6 +16,8 @@ namespace GeneradorDeNumerosAleatorios
     public partial class TP1 : Form
     {
         private Generator generator = new Generator();
+        public List<decimal> rndList = new List<decimal>();
+
         public TP1()
         {
             InitializeComponent();
@@ -70,7 +72,7 @@ namespace GeneradorDeNumerosAleatorios
                 this.cmbGenerator.SelectedIndex = 0;
                 this.txtC.Enabled = true;
                 this.btnValorNuevo.Enabled = false;
-                this.lstGeneratedNums.Items.Clear();
+                this.txtGeneratedNums.Text = "";
             }
             else
             {
@@ -81,7 +83,7 @@ namespace GeneradorDeNumerosAleatorios
                 this.txtQuantity.Text = "";
                 this.cmbGenerator.SelectedIndex = 0;
                 this.btnValorNuevo.Enabled = false;
-                this.lstGeneratedNums.Items.Clear();
+                this.txtGeneratedNums.Text = "";
             }
             
         }
@@ -111,12 +113,9 @@ namespace GeneradorDeNumerosAleatorios
                     generator.M = Convert.ToDecimal(this.txtM.Text);
                     int q = Convert.ToInt32(this.txtQuantity.Text);
 
-                    this.lstGeneratedNums.Items.Clear();
-                    var randomList = generator.Generate(q);
-                    /*for (int i = 0; i < randomList.Count; i++) 
-                    {
-                        this.lstGeneratedNums.Items.Add(i + 1 + ")\t" + randomList[i]);
-                    }*/
+                    this.txtGeneratedNums.Text = "";
+                    rndList.Clear();
+                    GenerateRandomCongruential(q);
                 }
             }
         }
@@ -138,8 +137,10 @@ namespace GeneradorDeNumerosAleatorios
 
         private void BtnValorNuevo_Click(object sender, EventArgs e)
         {
-            decimal rnd = generator.SingleGenerate();
-            this.lstGeneratedNums.Items.Add(rnd);
+            decimal rnd = generator.NextRnd();
+            rndList.Add(rnd);
+            rnd = (Math.Truncate(rnd * 10000) / 10000);
+            txtGeneratedNums.Text += (rndList.Count + ")\t" + rnd + Environment.NewLine);
         }
 
         private void CmbGenerator_SelectionChangeCommitted(object sender, EventArgs e)
@@ -162,13 +163,10 @@ namespace GeneradorDeNumerosAleatorios
 
         private void btnGenerateRandom_Click(object sender, EventArgs e)
         {
-            
-
             if(String.IsNullOrEmpty(this.txtQuantityRandom.Text) || String.IsNullOrEmpty(this.txtIntervalQuantityRandom.Text))
             {
                 MessageBox.Show("Debe llenar los parámetros obligatorios antes de generar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
             else
             {
                 if (this.txtIntervalQuantityRandom.Text.Equals("0"))
@@ -177,37 +175,37 @@ namespace GeneradorDeNumerosAleatorios
                 }
                 else
                 {
-                    List<double> randomList = new List<double>();
                     int q = Convert.ToInt32(this.txtQuantityRandom.Text);
                     int subInt = Convert.ToInt32(this.txtIntervalQuantityRandom.Text);
-                    randomList = GenerateRandom(q);
+                    rndList.Clear();
+                    GenerateRandom(q);
       
                     ChiCuadrado chi2 = new ChiCuadrado();
-                    Intervalo[] intervalos = new Intervalo[subInt];
-                    intervalos = chi2.getFrequencies(randomList, subInt);
+                    Intervalo[] intervals = new Intervalo[subInt];
+                    intervals = chi2.getFrequencies(rndList, subInt);
 
                     this.chartFreqRandom.Series["Freq observada"].Points.Clear();
                     this.chartFreqRandom.Series["Freq esperada"].Points.Clear();
                     this.dgvChiRandom.Rows.Clear();
                     decimal sum = 0;
-                    foreach (Intervalo intervalo in intervalos)
+                    foreach (Intervalo interval in intervals)
                     {
-                        string intervalStr = intervalo.ToString();
-                        int waitedFreq = (int)(randomList.Count / intervalos.Length);
-                        decimal col4 = (decimal) Math.Round(Math.Pow(intervalo.contador - waitedFreq, 2), 4);
+                        string intervalStr = interval.ToString();
+                        int waitedFreq = (int)(rndList.Count / intervals.Length);
+                        decimal col4 = (decimal) Math.Round(Math.Pow(interval.contador - waitedFreq, 2), 4);
                         decimal col5 = Math.Round(col4 / waitedFreq, 4);
                         sum += col5;
                         // Agrego points de grafico de frecuencia observada
                         this.chartFreqRandom.Series["Freq observada"].Points.AddXY(
                             intervalStr,
-                            intervalo.contador
+                            interval.contador
                             );
                         // Agrego points de grafico de frecuencia esperada
                         this.chartFreqRandom.Series["Freq esperada"].Points.Add(waitedFreq);
                         // Agrego fila a la tabla
                         this.dgvChiRandom.Rows.Add(
                             intervalStr,
-                            intervalo.contador,
+                            interval.contador,
                             waitedFreq,
                             col4,
                             col5,
@@ -218,22 +216,33 @@ namespace GeneradorDeNumerosAleatorios
             }     
         }
 
-        private List<double> GenerateRandom(int q)
+        private void GenerateRandomCongruential(int q)
         {
-            Random rnd = new Random();
-            List<double> rndList = new List<double>();
             StringBuilder numbersList = new StringBuilder();
 
             for (int i = 0; i < q; i++)
             {
-                
-                double num = rnd.NextDouble();
+                decimal num = generator.NextRnd();
                 num = (Math.Truncate(num * 10000) / 10000);
                 rndList.Add(num);
-                numbersList.Append((i + 1) + ")\t" + num + "\n");
+                numbersList.Append((i + 1) + ")\t" + num + Environment.NewLine);
             }
-            txtGeneratedListRandom.Text = numbersList.ToString();
-            return rndList;
+            txtGeneratedNums.Text = numbersList.ToString();
+        }
+
+        private void GenerateRandom(int q)
+        {
+            Random rnd = new Random();
+            StringBuilder numbersList = new StringBuilder();
+
+            for (int i = 0; i < q; i++)
+            {
+                double num = rnd.NextDouble();
+                num = (Math.Truncate(num * 10000) / 10000);
+                rndList.Add((decimal)num);
+                numbersList.Append((i + 1) + ")\t" + num + Environment.NewLine);
+            }
+            txtGeneratedNumsRandom.Text = numbersList.ToString();
         }
 
         private void txtSubintervChi_Enter(object sender, EventArgs e)

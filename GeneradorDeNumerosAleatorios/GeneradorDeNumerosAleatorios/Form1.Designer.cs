@@ -32,9 +32,10 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.tabChiCuadrado = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtGeneratedNums = new System.Windows.Forms.TextBox();
+            this.lblGeneratedNums = new System.Windows.Forms.Label();
             this.gbCalculator = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblAverage = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@
             this.txtAverage = new System.Windows.Forms.TextBox();
             this.txtVarience = new System.Windows.Forms.TextBox();
             this.btnCalculate = new System.Windows.Forms.Button();
-            this.lstGeneratedNums = new System.Windows.Forms.ListBox();
             this.gbGenerator = new System.Windows.Forms.GroupBox();
             this.btnValorNuevo = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -62,7 +62,8 @@
             this.btnClean = new System.Windows.Forms.Button();
             this.chkModifyValues = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.txtGeneratedListRandom = new System.Windows.Forms.RichTextBox();
+            this.txtGeneratedNumsRandom = new System.Windows.Forms.TextBox();
+            this.lblGeneratedNumsRandom = new System.Windows.Forms.Label();
             this.gbChiRandom = new System.Windows.Forms.GroupBox();
             this.lblTabuledChi = new System.Windows.Forms.Label();
             this.lblObtainedChiSum = new System.Windows.Forms.Label();
@@ -85,7 +86,6 @@
             this.txtIntervalQuantityRandom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtQuantityRandom = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.tabChiCuadrado.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbCalculator.SuspendLayout();
@@ -99,11 +99,6 @@
             this.gbGeneratorRandom.SuspendLayout();
             this.SuspendLayout();
             // 
-            // fileSystemWatcher1
-            // 
-            this.fileSystemWatcher1.EnableRaisingEvents = true;
-            this.fileSystemWatcher1.SynchronizingObject = this;
-            // 
             // tabChiCuadrado
             // 
             this.tabChiCuadrado.Controls.Add(this.tabPage1);
@@ -116,8 +111,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.txtGeneratedNums);
+            this.tabPage1.Controls.Add(this.lblGeneratedNums);
             this.tabPage1.Controls.Add(this.gbCalculator);
-            this.tabPage1.Controls.Add(this.lstGeneratedNums);
             this.tabPage1.Controls.Add(this.gbGenerator);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -126,6 +122,25 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Generador";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtGeneratedNums
+            // 
+            this.txtGeneratedNums.Location = new System.Drawing.Point(9, 23);
+            this.txtGeneratedNums.Multiline = true;
+            this.txtGeneratedNums.Name = "txtGeneratedNums";
+            this.txtGeneratedNums.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtGeneratedNums.Size = new System.Drawing.Size(208, 481);
+            this.txtGeneratedNums.TabIndex = 9;
+            this.txtGeneratedNums.WordWrap = false;
+            // 
+            // lblGeneratedNums
+            // 
+            this.lblGeneratedNums.AutoSize = true;
+            this.lblGeneratedNums.Location = new System.Drawing.Point(6, 6);
+            this.lblGeneratedNums.Name = "lblGeneratedNums";
+            this.lblGeneratedNums.Size = new System.Drawing.Size(105, 13);
+            this.lblGeneratedNums.TabIndex = 8;
+            this.lblGeneratedNums.Text = "Números generados:";
             // 
             // gbCalculator
             // 
@@ -197,14 +212,6 @@
             this.btnCalculate.TabIndex = 0;
             this.btnCalculate.Text = "Calcular";
             this.btnCalculate.UseVisualStyleBackColor = true;
-            // 
-            // lstGeneratedNums
-            // 
-            this.lstGeneratedNums.FormattingEnabled = true;
-            this.lstGeneratedNums.Location = new System.Drawing.Point(6, 6);
-            this.lstGeneratedNums.Name = "lstGeneratedNums";
-            this.lstGeneratedNums.Size = new System.Drawing.Size(211, 498);
-            this.lstGeneratedNums.TabIndex = 2;
             // 
             // gbGenerator
             // 
@@ -416,7 +423,8 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.txtGeneratedListRandom);
+            this.tabPage2.Controls.Add(this.txtGeneratedNumsRandom);
+            this.tabPage2.Controls.Add(this.lblGeneratedNumsRandom);
             this.tabPage2.Controls.Add(this.gbChiRandom);
             this.tabPage2.Controls.Add(this.gbGeneratorRandom);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -427,13 +435,25 @@
             this.tabPage2.Text = "Generador de C#";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // txtGeneratedListRandom
+            // txtGeneratedNumsRandom
             // 
-            this.txtGeneratedListRandom.Location = new System.Drawing.Point(4, 22);
-            this.txtGeneratedListRandom.Name = "txtGeneratedListRandom";
-            this.txtGeneratedListRandom.Size = new System.Drawing.Size(155, 476);
-            this.txtGeneratedListRandom.TabIndex = 6;
-            this.txtGeneratedListRandom.Text = "";
+            this.txtGeneratedNumsRandom.Location = new System.Drawing.Point(9, 22);
+            this.txtGeneratedNumsRandom.Multiline = true;
+            this.txtGeneratedNumsRandom.Name = "txtGeneratedNumsRandom";
+            this.txtGeneratedNumsRandom.ReadOnly = true;
+            this.txtGeneratedNumsRandom.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtGeneratedNumsRandom.Size = new System.Drawing.Size(150, 476);
+            this.txtGeneratedNumsRandom.TabIndex = 10;
+            this.txtGeneratedNumsRandom.WordWrap = false;
+            // 
+            // lblGeneratedNumsRandom
+            // 
+            this.lblGeneratedNumsRandom.AutoSize = true;
+            this.lblGeneratedNumsRandom.Location = new System.Drawing.Point(6, 6);
+            this.lblGeneratedNumsRandom.Name = "lblGeneratedNumsRandom";
+            this.lblGeneratedNumsRandom.Size = new System.Drawing.Size(105, 13);
+            this.lblGeneratedNumsRandom.TabIndex = 7;
+            this.lblGeneratedNumsRandom.Text = "Números generados:";
             // 
             // gbChiRandom
             // 
@@ -455,7 +475,7 @@
             // lblTabuledChi
             // 
             this.lblTabuledChi.AutoSize = true;
-            this.lblTabuledChi.Location = new System.Drawing.Point(599, 242);
+            this.lblTabuledChi.Location = new System.Drawing.Point(629, 275);
             this.lblTabuledChi.Name = "lblTabuledChi";
             this.lblTabuledChi.Size = new System.Drawing.Size(73, 13);
             this.lblTabuledChi.TabIndex = 10;
@@ -464,7 +484,7 @@
             // lblObtainedChiSum
             // 
             this.lblObtainedChiSum.AutoSize = true;
-            this.lblObtainedChiSum.Location = new System.Drawing.Point(599, 191);
+            this.lblObtainedChiSum.Location = new System.Drawing.Point(629, 224);
             this.lblObtainedChiSum.Name = "lblObtainedChiSum";
             this.lblObtainedChiSum.Size = new System.Drawing.Size(139, 13);
             this.lblObtainedChiSum.TabIndex = 9;
@@ -472,14 +492,14 @@
             // 
             // txtObtainedSChiSum
             // 
-            this.txtObtainedSChiSum.Location = new System.Drawing.Point(599, 210);
+            this.txtObtainedSChiSum.Location = new System.Drawing.Point(629, 243);
             this.txtObtainedSChiSum.Name = "txtObtainedSChiSum";
             this.txtObtainedSChiSum.Size = new System.Drawing.Size(108, 20);
             this.txtObtainedSChiSum.TabIndex = 8;
             // 
             // txtTabuledChi
             // 
-            this.txtTabuledChi.Location = new System.Drawing.Point(599, 258);
+            this.txtTabuledChi.Location = new System.Drawing.Point(629, 291);
             this.txtTabuledChi.Name = "txtTabuledChi";
             this.txtTabuledChi.Size = new System.Drawing.Size(108, 20);
             this.txtTabuledChi.TabIndex = 7;
@@ -488,7 +508,7 @@
             // 
             this.lblRta.AutoSize = true;
             this.lblRta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRta.Location = new System.Drawing.Point(599, 306);
+            this.lblRta.Location = new System.Drawing.Point(629, 320);
             this.lblRta.Name = "lblRta";
             this.lblRta.Size = new System.Drawing.Size(82, 13);
             this.lblRta.TabIndex = 6;
@@ -496,7 +516,7 @@
             // 
             // txtRtaRandom
             // 
-            this.txtRtaRandom.Location = new System.Drawing.Point(599, 322);
+            this.txtRtaRandom.Location = new System.Drawing.Point(629, 336);
             this.txtRtaRandom.Name = "txtRtaRandom";
             this.txtRtaRandom.Size = new System.Drawing.Size(108, 20);
             this.txtRtaRandom.TabIndex = 5;
@@ -558,6 +578,7 @@
             this.chartFreqRandom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea2.AxisX.Interval = 1D;
             chartArea2.AxisX.Title = "Intervalos";
             chartArea2.AxisY.Title = "Valores";
             chartArea2.Name = "ChartArea1";
@@ -576,7 +597,7 @@
             series4.Name = "Freq esperada";
             this.chartFreqRandom.Series.Add(series3);
             this.chartFreqRandom.Series.Add(series4);
-            this.chartFreqRandom.Size = new System.Drawing.Size(587, 218);
+            this.chartFreqRandom.Size = new System.Drawing.Size(769, 218);
             this.chartFreqRandom.TabIndex = 3;
             this.chartFreqRandom.Text = "chart1";
             // 
@@ -661,9 +682,9 @@
             this.Name = "TP1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TP1";
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.tabChiCuadrado.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.gbCalculator.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -672,6 +693,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.gbChiRandom.ResumeLayout(false);
             this.gbChiRandom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiRandom)).EndInit();
@@ -683,7 +705,6 @@
         }
 
         #endregion
-        private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.TabControl tabChiCuadrado;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox gbCalculator;
@@ -693,7 +714,6 @@
         private System.Windows.Forms.TextBox txtAverage;
         private System.Windows.Forms.TextBox txtVarience;
         private System.Windows.Forms.Button btnCalculate;
-        private System.Windows.Forms.ListBox lstGeneratedNums;
         private System.Windows.Forms.GroupBox gbGenerator;
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.Button btnClean;
@@ -735,7 +755,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colOperation1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colOperation2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSum;
-        private System.Windows.Forms.RichTextBox txtGeneratedListRandom;
+        private System.Windows.Forms.Label lblGeneratedNums;
+        private System.Windows.Forms.Label lblGeneratedNumsRandom;
+        private System.Windows.Forms.TextBox txtGeneratedNums;
+        private System.Windows.Forms.TextBox txtGeneratedNumsRandom;
     }
 }
 

@@ -30,12 +30,11 @@ namespace GeneradorDeNumerosAleatorios
             return result;
         }
 
-        public decimal SingleGenerate()
+        public decimal NextRnd()
         {
             decimal rnd = ((this.a * this.seed) + this.c) % this.M;
             this.seed = rnd;
             rnd = rnd / (this.M - 1);
-            rnd = Math.Truncate(rnd * 10000) / 10000;
             return rnd;
         }
     }
