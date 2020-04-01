@@ -16,6 +16,8 @@ namespace GeneradorDeNumerosAleatorios
     public partial class TP1 : Form
     {
         private Generator generator = new Generator();
+        private List<decimal> rndList;
+
         public TP1()
         {
             InitializeComponent();
@@ -101,7 +103,8 @@ namespace GeneradorDeNumerosAleatorios
                 int q = Convert.ToInt32(this.txtQuantity.Text);
 
                 this.lstGeneratedNums.Items.Clear();
-                foreach (decimal rnd in generator.Generate(q))
+                rndList = generator.Generate(q);
+                foreach (decimal rnd in rndList)
                 {
                     this.lstGeneratedNums.Items.Add(rnd);
                 }
@@ -128,6 +131,7 @@ namespace GeneradorDeNumerosAleatorios
         {
             decimal rnd = generator.SingleGenerate();
             this.lstGeneratedNums.Items.Add(rnd);
+            rndList.Add(rnd);
         }
 
         private void CmbGenerator_SelectionChangeCommitted(object sender, EventArgs e)
@@ -146,6 +150,20 @@ namespace GeneradorDeNumerosAleatorios
                 txtC.Enabled = true;
                 txtC.Text = "";
             }
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            double total = 0;
+            double acVariance = 0;
+            foreach (double rndNum in rndList)
+            {
+                total += rndNum;
+                acVariance += Math.Pow(rndNum,2);
+            }
+            double average = total / rndList.Count();
+            this.txtAverage.Text = Convert.ToString(Math.Truncate(average * 10000) / 10000);
+            this.txtVarience.Text = Convert.ToString(Math.Truncate((acVariance / rndList.Count() - Math.Pow(average, 2)) * 10000) / 10000);
         }
     }
 }

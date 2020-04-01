@@ -111,10 +111,10 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.lblAverage, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.lblVariance, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.txtAverage, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.txtVarience, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblAverage, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblVariance, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtVarience, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtAverage, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(7, 30);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
@@ -126,7 +126,7 @@
             // lblAverage
             // 
             this.lblAverage.AutoSize = true;
-            this.lblAverage.Location = new System.Drawing.Point(7, 34);
+            this.lblAverage.Location = new System.Drawing.Point(7, 7);
             this.lblAverage.Margin = new System.Windows.Forms.Padding(7);
             this.lblAverage.Name = "lblAverage";
             this.lblAverage.Size = new System.Drawing.Size(39, 13);
@@ -136,7 +136,7 @@
             // lblVariance
             // 
             this.lblVariance.AutoSize = true;
-            this.lblVariance.Location = new System.Drawing.Point(7, 7);
+            this.lblVariance.Location = new System.Drawing.Point(7, 34);
             this.lblVariance.Margin = new System.Windows.Forms.Padding(7);
             this.lblVariance.Name = "lblVariance";
             this.lblVariance.Size = new System.Drawing.Size(51, 13);
@@ -145,14 +145,16 @@
             // 
             // txtAverage
             // 
-            this.txtAverage.Location = new System.Drawing.Point(175, 30);
+            this.txtAverage.Enabled = false;
+            this.txtAverage.Location = new System.Drawing.Point(175, 3);
             this.txtAverage.Name = "txtAverage";
             this.txtAverage.Size = new System.Drawing.Size(150, 20);
             this.txtAverage.TabIndex = 1;
             // 
             // txtVarience
             // 
-            this.txtVarience.Location = new System.Drawing.Point(175, 3);
+            this.txtVarience.Enabled = false;
+            this.txtVarience.Location = new System.Drawing.Point(175, 30);
             this.txtVarience.Name = "txtVarience";
             this.txtVarience.Size = new System.Drawing.Size(150, 20);
             this.txtVarience.TabIndex = 0;
@@ -165,6 +167,7 @@
             this.btnCalculate.TabIndex = 0;
             this.btnCalculate.Text = "Calcular";
             this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
             // lstGeneratedNums
             // 
