@@ -140,7 +140,7 @@ namespace GeneradorDeNumerosAleatorios
             decimal rnd = generator.NextRnd();
             rndList.Add(rnd);
             rnd = (Math.Truncate(rnd * 10000) / 10000);
-            txtGeneratedNums.Text += (rndList.Count + ")\t" + rnd + Environment.NewLine);
+            txtGeneratedNums.AppendText(rndList.Count + ")\t" + rnd + Environment.NewLine);
         }
 
         private void CmbGenerator_SelectionChangeCommitted(object sender, EventArgs e)
