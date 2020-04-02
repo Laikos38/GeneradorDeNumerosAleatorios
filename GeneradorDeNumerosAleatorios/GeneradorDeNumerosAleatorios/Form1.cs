@@ -171,9 +171,9 @@ namespace GeneradorDeNumerosAleatorios
             {
                 int subInt = Convert.ToInt32(this.txtIntervalQuantityRandom.Text);
 
-                if (subInt == 0 || subInt > 100)
+                if (subInt <= 1 || subInt > 100)
                 {
-                    MessageBox.Show("La cantidad de subintervalos debe estar entre los valores permitidos (0 - 100).", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("La cantidad de subintervalos debe estar entre los valores permitidos (2 - 100).", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -258,33 +258,34 @@ namespace GeneradorDeNumerosAleatorios
             txtGeneratedNumsRandom.Text = numbersList.ToString();
         }
 
-        private void txtSubintervChi_Enter(object sender, EventArgs e)
+        private void btnGenerateCong_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(this.txtQuantityRandom.Text))
+            if (string.IsNullOrEmpty(this.txtSeedCong.Text) || string.IsNullOrEmpty(this.txtACong.Text) ||
+                string.IsNullOrEmpty(this.txtCCong.Text) || string.IsNullOrEmpty(this.txtMCong.Text) || string.IsNullOrEmpty(this.txtQuantityCong.Text)
+                || (Convert.ToInt32(this.txtQuantityCong.Text) <= 0))
             {
-                long q = Convert.ToInt64(this.txtQuantityRandom.Text);
-                this.txtIntervalQuantityRandom.Text = Math.Round(Math.Sqrt(q)).ToString();
-            }
-        }
-
-        private void chkChangeValues_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.chkModifyValues.Checked)
-            {     
-                this.txtSeedCong.Enabled = true;
-                this.txtACong.Enabled = true;
-                this.txtMCong.Enabled = true;
+                MessageBox.Show("Ingrese todos los campos necesarios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                this.txtCCong.Text = "56822"; 
-                this.txtSeedCong.Enabled = false;
-                this.txtACong.Enabled = false;
-                this.txtCCong.Enabled = false;
-                this.txtMCong.Enabled = false;               
-                this.txtSeedCong.Text = "31767";
-                this.txtACong.Text = "71561";
-                this.txtMCong.Text = "341157";
+                if (this.txtSeedCong.Text == "0" || this.txtMCong.Text == "0")
+                {
+                    MessageBox.Show("Los parámetros 'Semilla' o 'M' no pueden tener valor 0. Intente nuevamente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                else
+                {
+                    btnValorNuevo.Enabled = true;
+                    generator.seed = Convert.ToDecimal(this.txtSeedCong.Text);
+                    generator.a = Convert.ToDecimal(this.txtACong.Text);
+                    generator.c = Convert.ToDecimal(this.txtCCong.Text);
+                    generator.M = Convert.ToDecimal(this.txtMCong.Text);
+                    int q = Convert.ToInt32(this.txtQuantityCong.Text);
+
+                    this.txtGeneratedNums.Text = "";
+                    rndList.Clear();
+                    GenerateRandomCongruential(q);
+                }
             }
         }
     }

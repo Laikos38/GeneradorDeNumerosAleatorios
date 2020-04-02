@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabChiCuadrado = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtGeneratedNums = new System.Windows.Forms.TextBox();
@@ -109,7 +109,6 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chartCongruential = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chkChangeValues = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtACong = new System.Windows.Forms.TextBox();
@@ -620,25 +619,25 @@
             this.chartFreqRandom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea4.AxisX.Interval = 1D;
-            chartArea4.AxisX.Title = "Intervalos";
-            chartArea4.AxisY.Title = "Valores";
-            chartArea4.Name = "ChartArea1";
-            this.chartFreqRandom.ChartAreas.Add(chartArea4);
+            chartArea3.AxisX.Interval = 1D;
+            chartArea3.AxisX.Title = "Intervalos";
+            chartArea3.AxisY.Title = "Valores";
+            chartArea3.Name = "ChartArea1";
+            this.chartFreqRandom.ChartAreas.Add(chartArea3);
             this.chartFreqRandom.DataSource = this.chartFreqRandom.Series;
-            legend4.Name = "Legend1";
-            this.chartFreqRandom.Legends.Add(legend4);
+            legend3.Name = "Legend1";
+            this.chartFreqRandom.Legends.Add(legend3);
             this.chartFreqRandom.Location = new System.Drawing.Point(6, 171);
             this.chartFreqRandom.Name = "chartFreqRandom";
             this.chartFreqRandom.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Freq observada";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Freq esperada";
-            this.chartFreqRandom.Series.Add(series7);
-            this.chartFreqRandom.Series.Add(series8);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Freq observada";
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Freq esperada";
+            this.chartFreqRandom.Series.Add(series5);
+            this.chartFreqRandom.Series.Add(series6);
             this.chartFreqRandom.Size = new System.Drawing.Size(769, 218);
             this.chartFreqRandom.TabIndex = 3;
             this.chartFreqRandom.Text = "chart1";
@@ -660,7 +659,7 @@
             // 
             // btnGenerateRandom
             // 
-            this.btnGenerateRandom.Location = new System.Drawing.Point(675, 53);
+            this.btnGenerateRandom.Location = new System.Drawing.Point(470, 59);
             this.btnGenerateRandom.Name = "btnGenerateRandom";
             this.btnGenerateRandom.Size = new System.Drawing.Size(75, 23);
             this.btnGenerateRandom.TabIndex = 9;
@@ -693,7 +692,6 @@
             this.txtIntervalQuantityRandom.Name = "txtIntervalQuantityRandom";
             this.txtIntervalQuantityRandom.Size = new System.Drawing.Size(138, 20);
             this.txtIntervalQuantityRandom.TabIndex = 1;
-            this.txtIntervalQuantityRandom.Enter += new System.EventHandler(this.txtSubintervChi_Enter);
             this.txtIntervalQuantityRandom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label1
@@ -871,32 +869,31 @@
             this.chartCongruential.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea5.AxisX.Interval = 1D;
-            chartArea5.AxisX.Title = "Intervalos";
-            chartArea5.AxisY.Title = "Valores";
-            chartArea5.Name = "ChartArea1";
-            this.chartCongruential.ChartAreas.Add(chartArea5);
+            chartArea4.AxisX.Interval = 1D;
+            chartArea4.AxisX.Title = "Intervalos";
+            chartArea4.AxisY.Title = "Valores";
+            chartArea4.Name = "ChartArea1";
+            this.chartCongruential.ChartAreas.Add(chartArea4);
             this.chartCongruential.DataSource = this.chartCongruential.Series;
-            legend5.Name = "Legend1";
-            this.chartCongruential.Legends.Add(legend5);
+            legend4.Name = "Legend1";
+            this.chartCongruential.Legends.Add(legend4);
             this.chartCongruential.Location = new System.Drawing.Point(6, 171);
             this.chartCongruential.Name = "chartCongruential";
             this.chartCongruential.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series9.ChartArea = "ChartArea1";
-            series9.Legend = "Legend1";
-            series9.Name = "Freq observada";
-            series10.ChartArea = "ChartArea1";
-            series10.Legend = "Legend1";
-            series10.Name = "Freq esperada";
-            this.chartCongruential.Series.Add(series9);
-            this.chartCongruential.Series.Add(series10);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Freq observada";
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Freq esperada";
+            this.chartCongruential.Series.Add(series7);
+            this.chartCongruential.Series.Add(series8);
             this.chartCongruential.Size = new System.Drawing.Size(769, 218);
             this.chartCongruential.TabIndex = 3;
             this.chartCongruential.Text = "chart1";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.chkChangeValues);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtACong);
@@ -914,17 +911,6 @@
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Parámetros";
-            // 
-            // chkChangeValues
-            // 
-            this.chkChangeValues.AutoSize = true;
-            this.chkChangeValues.Location = new System.Drawing.Point(540, 59);
-            this.chkChangeValues.Name = "chkChangeValues";
-            this.chkChangeValues.Size = new System.Drawing.Size(106, 17);
-            this.chkChangeValues.TabIndex = 19;
-            this.chkChangeValues.Text = "Modificar valores";
-            this.chkChangeValues.UseVisualStyleBackColor = true;
-            this.chkChangeValues.CheckedChanged += new System.EventHandler(this.chkChangeValues_CheckedChanged);
             // 
             // label11
             // 
@@ -1009,12 +995,13 @@
             // 
             // btnGenerateCong
             // 
-            this.btnGenerateCong.Location = new System.Drawing.Point(675, 53);
+            this.btnGenerateCong.Location = new System.Drawing.Point(540, 58);
             this.btnGenerateCong.Name = "btnGenerateCong";
             this.btnGenerateCong.Size = new System.Drawing.Size(75, 23);
             this.btnGenerateCong.TabIndex = 9;
             this.btnGenerateCong.Text = "Generar";
             this.btnGenerateCong.UseVisualStyleBackColor = true;
+            this.btnGenerateCong.Click += new System.EventHandler(this.btnGenerateCong_Click);
             // 
             // txtSeedCong
             // 
@@ -1139,7 +1126,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         protected System.Windows.Forms.DataVisualization.Charting.Chart chartCongruential;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox chkChangeValues;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtACong;
