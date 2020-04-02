@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -91,7 +92,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtQuantityRandom = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtGeneratedNumsCon = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -109,6 +110,8 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chartCongruential = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtIntervalQuantityRandomCon = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtACong = new System.Windows.Forms.TextBox();
@@ -120,6 +123,7 @@
             this.txtCCong = new System.Windows.Forms.TextBox();
             this.btnGenerateCong = new System.Windows.Forms.Button();
             this.txtSeedCong = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabChiCuadrado.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbCalculator.SuspendLayout();
@@ -567,6 +571,7 @@
             // 
             // dgvChiRandom
             // 
+            this.dgvChiRandom.AllowUserToAddRows = false;
             this.dgvChiRandom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvChiRandom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colIntervals,
@@ -716,7 +721,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.textBox1);
+            this.tabPage3.Controls.Add(this.txtGeneratedNumsCon);
             this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Controls.Add(this.groupBox2);
@@ -728,16 +733,16 @@
             this.tabPage3.Text = "Chi^2 Congruencial";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtGeneratedNumsCon
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 22);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(150, 476);
-            this.textBox1.TabIndex = 22;
-            this.textBox1.WordWrap = false;
+            this.txtGeneratedNumsCon.Location = new System.Drawing.Point(9, 22);
+            this.txtGeneratedNumsCon.Multiline = true;
+            this.txtGeneratedNumsCon.Name = "txtGeneratedNumsCon";
+            this.txtGeneratedNumsCon.ReadOnly = true;
+            this.txtGeneratedNumsCon.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtGeneratedNumsCon.Size = new System.Drawing.Size(150, 476);
+            this.txtGeneratedNumsCon.TabIndex = 22;
+            this.txtGeneratedNumsCon.WordWrap = false;
             // 
             // label2
             // 
@@ -787,6 +792,7 @@
             // 
             this.txtSumChiCong.Location = new System.Drawing.Point(629, 243);
             this.txtSumChiCong.Name = "txtSumChiCong";
+            this.txtSumChiCong.ReadOnly = true;
             this.txtSumChiCong.Size = new System.Drawing.Size(108, 20);
             this.txtSumChiCong.TabIndex = 8;
             // 
@@ -794,6 +800,7 @@
             // 
             this.txtTabChiCong.Location = new System.Drawing.Point(629, 291);
             this.txtTabChiCong.Name = "txtTabChiCong";
+            this.txtTabChiCong.ReadOnly = true;
             this.txtTabChiCong.Size = new System.Drawing.Size(108, 20);
             this.txtTabChiCong.TabIndex = 7;
             // 
@@ -812,11 +819,13 @@
             this.txtResultChiCong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResultChiCong.Location = new System.Drawing.Point(611, 336);
             this.txtResultChiCong.Name = "txtResultChiCong";
+            this.txtResultChiCong.ReadOnly = true;
             this.txtResultChiCong.Size = new System.Drawing.Size(164, 20);
             this.txtResultChiCong.TabIndex = 5;
             // 
             // dgvCongruential
             // 
+            this.dgvCongruential.AllowUserToAddRows = false;
             this.dgvCongruential.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCongruential.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -897,6 +906,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.txtIntervalQuantityRandomCon);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtACong);
@@ -914,6 +925,24 @@
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Parámetros";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(372, 62);
+            this.label12.Margin = new System.Windows.Forms.Padding(7);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(129, 13);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "Cantidad de subintervalos";
+            // 
+            // txtIntervalQuantityRandomCon
+            // 
+            this.txtIntervalQuantityRandomCon.Location = new System.Drawing.Point(540, 58);
+            this.txtIntervalQuantityRandomCon.Name = "txtIntervalQuantityRandomCon";
+            this.txtIntervalQuantityRandomCon.Size = new System.Drawing.Size(75, 20);
+            this.txtIntervalQuantityRandomCon.TabIndex = 19;
+            this.txtIntervalQuantityRandomCon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label11
             // 
@@ -942,6 +971,7 @@
             this.txtACong.Size = new System.Drawing.Size(69, 20);
             this.txtACong.TabIndex = 14;
             this.txtACong.Text = "71561";
+            this.txtACong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label8
             // 
@@ -959,6 +989,7 @@
             this.txtQuantityCong.Name = "txtQuantityCong";
             this.txtQuantityCong.Size = new System.Drawing.Size(75, 20);
             this.txtQuantityCong.TabIndex = 13;
+            this.txtQuantityCong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label9
             // 
@@ -977,6 +1008,7 @@
             this.txtMCong.Size = new System.Drawing.Size(81, 20);
             this.txtMCong.TabIndex = 12;
             this.txtMCong.Text = "341157";
+            this.txtMCong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label10
             // 
@@ -995,10 +1027,11 @@
             this.txtCCong.Size = new System.Drawing.Size(81, 20);
             this.txtCCong.TabIndex = 10;
             this.txtCCong.Text = "56822";
+            this.txtCCong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // btnGenerateCong
             // 
-            this.btnGenerateCong.Location = new System.Drawing.Point(540, 58);
+            this.btnGenerateCong.Location = new System.Drawing.Point(693, 48);
             this.btnGenerateCong.Name = "btnGenerateCong";
             this.btnGenerateCong.Size = new System.Drawing.Size(75, 23);
             this.btnGenerateCong.TabIndex = 9;
@@ -1013,6 +1046,12 @@
             this.txtSeedCong.Size = new System.Drawing.Size(69, 20);
             this.txtSeedCong.TabIndex = 0;
             this.txtSeedCong.Text = "31767";
+            this.txtSeedCong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // TP1
             // 
@@ -1024,7 +1063,7 @@
             this.MaximizeBox = false;
             this.Name = "TP1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TP1";
+            this.Text = "Generador de números pseudoaleatorios";
             this.tabChiCuadrado.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1111,7 +1150,7 @@
         private System.Windows.Forms.TextBox txtGeneratedNums;
         private System.Windows.Forms.TextBox txtGeneratedNumsRandom;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtGeneratedNumsCon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
@@ -1140,6 +1179,9 @@
         private System.Windows.Forms.TextBox txtCCong;
         private System.Windows.Forms.Button btnGenerateCong;
         private System.Windows.Forms.TextBox txtSeedCong;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtIntervalQuantityRandomCon;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

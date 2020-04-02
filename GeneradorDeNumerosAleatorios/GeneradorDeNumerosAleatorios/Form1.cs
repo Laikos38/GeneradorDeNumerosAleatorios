@@ -171,7 +171,7 @@ namespace GeneradorDeNumerosAleatorios
             {
                 int subInt = Convert.ToInt32(this.txtIntervalQuantityRandom.Text);
 
-                if (subInt <= 1 || subInt > 100)
+                if (subInt <= 1 || subInt > 101)
                 {
                     MessageBox.Show("La cantidad de subintervalos debe estar entre los valores permitidos (2 - 100).", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -240,7 +240,14 @@ namespace GeneradorDeNumerosAleatorios
                 rndList.Add(num);
                 numbersList.Append((i + 1) + ")\t" + num + Environment.NewLine);
             }
-            txtGeneratedNums.Text = numbersList.ToString();
+            if (tabChiCuadrado.SelectedIndex == 2) //Si la pestaña seleccionada es la 3 (Chi cuadrado con generador congruencial)
+            {
+                txtGeneratedNumsCon.Text = numbersList.ToString();
+            }
+            else //Si es cualquier otra pestaña
+            {
+                txtGeneratedNums.Text = numbersList.ToString();
+            }
         }
 
         private void GenerateRandom(int q)
@@ -258,11 +265,11 @@ namespace GeneradorDeNumerosAleatorios
             txtGeneratedNumsRandom.Text = numbersList.ToString();
         }
 
-        private void btnGenerateCong_Click(object sender, EventArgs e)
+        private void btnGenerateCong_Click(object sender, EventArgs e) //Boton para generar los números por el método congruencial y hacer el test de chi cuadrado (3° tab)
         {
             if (string.IsNullOrEmpty(this.txtSeedCong.Text) || string.IsNullOrEmpty(this.txtACong.Text) ||
                 string.IsNullOrEmpty(this.txtCCong.Text) || string.IsNullOrEmpty(this.txtMCong.Text) || string.IsNullOrEmpty(this.txtQuantityCong.Text)
-                || (Convert.ToInt32(this.txtQuantityCong.Text) <= 0))
+                || (Convert.ToInt32(this.txtQuantityCong.Text) <= 0) || string.IsNullOrEmpty(this.txtIntervalQuantityRandomCon.Text))
             {
                 MessageBox.Show("Ingrese todos los campos necesarios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -271,6 +278,13 @@ namespace GeneradorDeNumerosAleatorios
                 if (this.txtSeedCong.Text == "0" || this.txtMCong.Text == "0")
                 {
                     MessageBox.Show("Los parámetros 'Semilla' o 'M' no pueden tener valor 0. Intente nuevamente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                int subInt = Convert.ToInt32(this.txtIntervalQuantityRandomCon.Text);
+
+                if (subInt <= 1 || subInt > 101)
+                {
+                    MessageBox.Show("La cantidad de subintervalos debe estar entre los valores permitidos (2 - 100).", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 else
@@ -285,7 +299,53 @@ namespace GeneradorDeNumerosAleatorios
                     this.txtGeneratedNums.Text = "";
                     rndList.Clear();
                     GenerateRandomCongruential(q);
-                }
+
+                    //Ya generé los números empieza el test de chi cuadrado.
+                    ChiCuadrado chi2 = new ChiCuadrado();
+                    Intervalo[] intervals = new Intervalo[subInt];
+                    intervals = chi2.getFrequencies(rndList, subInt);
+
+                    double c = chi2.calcEstadistico(intervals, q);
+                    int v = subInt - 1; //No se resta m porque es 0 en este caso.
+                    double tabChi = chi2.getCriticalValue(v);
+
+                    this.txtSumChiCong.Text = c.ToString();
+                    this.txtTabChiCong.Text = tabChi.ToString();
+
+                    if (c <= tabChi) this.txtResultChiCong.Text = "No se rechaza la hipótesis nula.";
+                    else this.txtResultChiCong.Text = "Se rechaza la hipótesis nula";
+
+
+                    this.chartCongruential.Series["Freq observada"].Points.Clear();
+                    this.chartCongruential.Series["Freq esperada"].Points.Clear();
+                    this.dgvCongruential.Rows.Clear();
+                    decimal sum = 0;
+                    foreach (Intervalo interval in intervals)
+                    {
+                        string intervalStr = interval.ToString();
+                        int waitedFreq = (int)(rndList.Count / intervals.Length);
+                        decimal col4 = (decimal)Math.Round(Math.Pow(interval.contador - waitedFreq, 2), 4);
+                        decimal col5 = Math.Round(col4 / waitedFreq, 4);
+                        sum += col5;
+                        // Agrego points de grafico de frecuencia observada
+                        this.chartCongruential.Series["Freq observada"].Points.AddXY(
+                            intervalStr,
+                            interval.contador
+                            );
+                        // Agrego points de grafico de frecuencia esperada
+                        this.chartCongruential.Series["Freq esperada"].Points.Add(waitedFreq);
+                        // Agrego fila a la tabla
+                        this.dgvCongruential.Rows.Add(
+                            intervalStr,
+                            interval.contador,
+                            waitedFreq,
+                            col4,
+                            col5,
+                            sum
+                            );
+                    }
+
+            }
             }
         }
     }
