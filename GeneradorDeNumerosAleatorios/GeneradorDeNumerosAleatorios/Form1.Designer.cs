@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabChiCuadrado = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtGeneratedNums = new System.Windows.Forms.TextBox();
@@ -534,6 +534,7 @@
             // 
             this.txtObtainedSChiSum.Location = new System.Drawing.Point(629, 243);
             this.txtObtainedSChiSum.Name = "txtObtainedSChiSum";
+            this.txtObtainedSChiSum.ReadOnly = true;
             this.txtObtainedSChiSum.Size = new System.Drawing.Size(108, 20);
             this.txtObtainedSChiSum.TabIndex = 8;
             // 
@@ -541,6 +542,7 @@
             // 
             this.txtTabuledChi.Location = new System.Drawing.Point(629, 291);
             this.txtTabuledChi.Name = "txtTabuledChi";
+            this.txtTabuledChi.ReadOnly = true;
             this.txtTabuledChi.Size = new System.Drawing.Size(108, 20);
             this.txtTabuledChi.TabIndex = 7;
             // 
@@ -559,6 +561,7 @@
             this.txtRtaRandom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRtaRandom.Location = new System.Drawing.Point(606, 336);
             this.txtRtaRandom.Name = "txtRtaRandom";
+            this.txtRtaRandom.ReadOnly = true;
             this.txtRtaRandom.Size = new System.Drawing.Size(162, 20);
             this.txtRtaRandom.TabIndex = 5;
             // 
@@ -619,25 +622,25 @@
             this.chartFreqRandom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.AxisX.Interval = 1D;
-            chartArea3.AxisX.Title = "Intervalos";
-            chartArea3.AxisY.Title = "Valores";
-            chartArea3.Name = "ChartArea1";
-            this.chartFreqRandom.ChartAreas.Add(chartArea3);
+            chartArea1.AxisX.Interval = 1D;
+            chartArea1.AxisX.Title = "Intervalos";
+            chartArea1.AxisY.Title = "Valores";
+            chartArea1.Name = "ChartArea1";
+            this.chartFreqRandom.ChartAreas.Add(chartArea1);
             this.chartFreqRandom.DataSource = this.chartFreqRandom.Series;
-            legend3.Name = "Legend1";
-            this.chartFreqRandom.Legends.Add(legend3);
+            legend1.Name = "Legend1";
+            this.chartFreqRandom.Legends.Add(legend1);
             this.chartFreqRandom.Location = new System.Drawing.Point(6, 171);
             this.chartFreqRandom.Name = "chartFreqRandom";
             this.chartFreqRandom.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Freq observada";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Freq esperada";
-            this.chartFreqRandom.Series.Add(series5);
-            this.chartFreqRandom.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Freq observada";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Freq esperada";
+            this.chartFreqRandom.Series.Add(series1);
+            this.chartFreqRandom.Series.Add(series2);
             this.chartFreqRandom.Size = new System.Drawing.Size(769, 218);
             this.chartFreqRandom.TabIndex = 3;
             this.chartFreqRandom.Text = "chart1";
@@ -869,25 +872,25 @@
             this.chartCongruential.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea4.AxisX.Interval = 1D;
-            chartArea4.AxisX.Title = "Intervalos";
-            chartArea4.AxisY.Title = "Valores";
-            chartArea4.Name = "ChartArea1";
-            this.chartCongruential.ChartAreas.Add(chartArea4);
+            chartArea2.AxisX.Interval = 1D;
+            chartArea2.AxisX.Title = "Intervalos";
+            chartArea2.AxisY.Title = "Valores";
+            chartArea2.Name = "ChartArea1";
+            this.chartCongruential.ChartAreas.Add(chartArea2);
             this.chartCongruential.DataSource = this.chartCongruential.Series;
-            legend4.Name = "Legend1";
-            this.chartCongruential.Legends.Add(legend4);
+            legend2.Name = "Legend1";
+            this.chartCongruential.Legends.Add(legend2);
             this.chartCongruential.Location = new System.Drawing.Point(6, 171);
             this.chartCongruential.Name = "chartCongruential";
             this.chartCongruential.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Freq observada";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Freq esperada";
-            this.chartCongruential.Series.Add(series7);
-            this.chartCongruential.Series.Add(series8);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Freq observada";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Freq esperada";
+            this.chartCongruential.Series.Add(series3);
+            this.chartCongruential.Series.Add(series4);
             this.chartCongruential.Size = new System.Drawing.Size(769, 218);
             this.chartCongruential.TabIndex = 3;
             this.chartCongruential.Text = "chart1";
