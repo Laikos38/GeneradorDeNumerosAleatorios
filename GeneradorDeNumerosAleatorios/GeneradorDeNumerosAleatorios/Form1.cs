@@ -87,6 +87,7 @@ namespace GeneradorDeNumerosAleatorios
             }
             this.txtAverage.Text = "";
             this.txtVarience.Text = "";
+            this.btnCalculate.Enabled = false;
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
@@ -118,6 +119,7 @@ namespace GeneradorDeNumerosAleatorios
                     GenerateRandomCongruential(q);
                     this.txtAverage.Text = "";
                     this.txtVarience.Text = "";
+                    this.btnCalculate.Enabled = true;
                 }
             }
         }

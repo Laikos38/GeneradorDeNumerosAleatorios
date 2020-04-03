@@ -253,6 +253,7 @@
             // 
             // btnCalculate
             // 
+            this.btnCalculate.Enabled = false;
             this.btnCalculate.Location = new System.Drawing.Point(599, 170);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(75, 23);
