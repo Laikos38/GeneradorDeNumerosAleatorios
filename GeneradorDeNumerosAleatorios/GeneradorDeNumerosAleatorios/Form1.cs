@@ -16,7 +16,7 @@ namespace GeneradorDeNumerosAleatorios
     public partial class TP1 : Form
     {
         private Generator generator = new Generator();
-        public List<decimal> rndList = new List<decimal>();
+        private List<decimal> rndList = new List<decimal>();
 
         public TP1()
         {
@@ -62,6 +62,8 @@ namespace GeneradorDeNumerosAleatorios
 
         private void btnClean_Click(object sender, EventArgs e)
         {
+            this.rndList.Clear();
+
             if (this.chkModifyValues.Checked)
             {
                 this.txtSeed.Text = "";
