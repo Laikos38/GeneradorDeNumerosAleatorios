@@ -203,7 +203,6 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-
             this.tableLayoutPanel2.Controls.Add(this.lblAverage, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.lblVariance, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtAverage, 1, 1);
@@ -219,7 +218,7 @@
             // lblAverage
             // 
             this.lblAverage.AutoSize = true;
-            this.lblAverage.Location = new System.Drawing.Point(7, 7);
+            this.lblAverage.Location = new System.Drawing.Point(7, 34);
             this.lblAverage.Margin = new System.Windows.Forms.Padding(7);
             this.lblAverage.Name = "lblAverage";
             this.lblAverage.Size = new System.Drawing.Size(39, 13);
@@ -229,7 +228,7 @@
             // lblVariance
             // 
             this.lblVariance.AutoSize = true;
-            this.lblVariance.Location = new System.Drawing.Point(7, 34);
+            this.lblVariance.Location = new System.Drawing.Point(7, 7);
             this.lblVariance.Margin = new System.Windows.Forms.Padding(7);
             this.lblVariance.Name = "lblVariance";
             this.lblVariance.Size = new System.Drawing.Size(51, 13);
@@ -946,7 +945,7 @@
             this.txtIntervalQuantityRandomCon.Location = new System.Drawing.Point(540, 58);
             this.txtIntervalQuantityRandomCon.Name = "txtIntervalQuantityRandomCon";
             this.txtIntervalQuantityRandomCon.Size = new System.Drawing.Size(75, 20);
-            this.txtIntervalQuantityRandomCon.TabIndex = 19;
+            this.txtIntervalQuantityRandomCon.TabIndex = 5;
             this.txtIntervalQuantityRandomCon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label11
@@ -974,7 +973,7 @@
             this.txtACong.Location = new System.Drawing.Point(89, 55);
             this.txtACong.Name = "txtACong";
             this.txtACong.Size = new System.Drawing.Size(69, 20);
-            this.txtACong.TabIndex = 14;
+            this.txtACong.TabIndex = 1;
             this.txtACong.Text = "71561";
             this.txtACong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
@@ -993,7 +992,7 @@
             this.txtQuantityCong.Location = new System.Drawing.Point(540, 19);
             this.txtQuantityCong.Name = "txtQuantityCong";
             this.txtQuantityCong.Size = new System.Drawing.Size(75, 20);
-            this.txtQuantityCong.TabIndex = 13;
+            this.txtQuantityCong.TabIndex = 4;
             this.txtQuantityCong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label9
@@ -1011,7 +1010,7 @@
             this.txtMCong.Location = new System.Drawing.Point(242, 55);
             this.txtMCong.Name = "txtMCong";
             this.txtMCong.Size = new System.Drawing.Size(81, 20);
-            this.txtMCong.TabIndex = 12;
+            this.txtMCong.TabIndex = 3;
             this.txtMCong.Text = "341157";
             this.txtMCong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
@@ -1030,7 +1029,7 @@
             this.txtCCong.Location = new System.Drawing.Point(242, 19);
             this.txtCCong.Name = "txtCCong";
             this.txtCCong.Size = new System.Drawing.Size(81, 20);
-            this.txtCCong.TabIndex = 10;
+            this.txtCCong.TabIndex = 2;
             this.txtCCong.Text = "56822";
             this.txtCCong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
@@ -1039,7 +1038,7 @@
             this.btnGenerateCong.Location = new System.Drawing.Point(693, 48);
             this.btnGenerateCong.Name = "btnGenerateCong";
             this.btnGenerateCong.Size = new System.Drawing.Size(75, 23);
-            this.btnGenerateCong.TabIndex = 9;
+            this.btnGenerateCong.TabIndex = 6;
             this.btnGenerateCong.Text = "Generar";
             this.btnGenerateCong.UseVisualStyleBackColor = true;
             this.btnGenerateCong.Click += new System.EventHandler(this.btnGenerateCong_Click);
