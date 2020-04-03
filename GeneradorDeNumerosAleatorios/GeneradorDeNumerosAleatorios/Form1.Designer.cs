@@ -203,6 +203,7 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+
             this.tableLayoutPanel2.Controls.Add(this.lblAverage, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.lblVariance, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtAverage, 1, 1);
@@ -218,7 +219,7 @@
             // lblAverage
             // 
             this.lblAverage.AutoSize = true;
-            this.lblAverage.Location = new System.Drawing.Point(7, 34);
+            this.lblAverage.Location = new System.Drawing.Point(7, 7);
             this.lblAverage.Margin = new System.Windows.Forms.Padding(7);
             this.lblAverage.Name = "lblAverage";
             this.lblAverage.Size = new System.Drawing.Size(39, 13);
@@ -228,7 +229,7 @@
             // lblVariance
             // 
             this.lblVariance.AutoSize = true;
-            this.lblVariance.Location = new System.Drawing.Point(7, 7);
+            this.lblVariance.Location = new System.Drawing.Point(7, 34);
             this.lblVariance.Margin = new System.Windows.Forms.Padding(7);
             this.lblVariance.Name = "lblVariance";
             this.lblVariance.Size = new System.Drawing.Size(51, 13);
@@ -237,6 +238,7 @@
             // 
             // txtAverage
             // 
+            this.txtAverage.Enabled = false;
             this.txtAverage.Location = new System.Drawing.Point(194, 30);
             this.txtAverage.Name = "txtAverage";
             this.txtAverage.Size = new System.Drawing.Size(150, 20);
@@ -244,6 +246,7 @@
             // 
             // txtVarience
             // 
+            this.txtVarience.Enabled = false;
             this.txtVarience.Location = new System.Drawing.Point(194, 3);
             this.txtVarience.Name = "txtVarience";
             this.txtVarience.Size = new System.Drawing.Size(150, 20);
@@ -257,6 +260,7 @@
             this.btnCalculate.TabIndex = 0;
             this.btnCalculate.Text = "Calcular";
             this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
             // gbGenerator
             // 

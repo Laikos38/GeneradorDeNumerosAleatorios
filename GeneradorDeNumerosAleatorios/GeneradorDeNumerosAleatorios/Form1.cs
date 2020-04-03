@@ -103,7 +103,6 @@ namespace GeneradorDeNumerosAleatorios
                 {
                     MessageBox.Show("Los parámetros 'Semilla' o 'M' no pueden tener valor 0. Intente nuevamente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
                 else 
                 {
                     btnValorNuevo.Enabled = true;
@@ -161,6 +160,20 @@ namespace GeneradorDeNumerosAleatorios
             }
         }
 
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            double total = 0;
+            double acVariance = 0;
+            foreach (double rndNum in rndList)
+            {
+                total += rndNum;
+                acVariance += Math.Pow(rndNum,2);
+            }
+            double average = total / rndList.Count();
+            this.txtAverage.Text = Convert.ToString(Math.Truncate(average * 10000) / 10000);
+            this.txtVarience.Text = Convert.ToString(Math.Truncate((acVariance / rndList.Count() - Math.Pow(average, 2)) * 10000) / 10000);
+        }
+        
         private void btnGenerateRandom_Click(object sender, EventArgs e)
         {
             if(String.IsNullOrEmpty(this.txtQuantityRandom.Text) || String.IsNullOrEmpty(this.txtIntervalQuantityRandom.Text))
