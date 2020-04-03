@@ -203,7 +203,6 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-
             this.tableLayoutPanel2.Controls.Add(this.lblAverage, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.lblVariance, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtAverage, 1, 1);
@@ -219,7 +218,7 @@
             // lblAverage
             // 
             this.lblAverage.AutoSize = true;
-            this.lblAverage.Location = new System.Drawing.Point(7, 7);
+            this.lblAverage.Location = new System.Drawing.Point(7, 34);
             this.lblAverage.Margin = new System.Windows.Forms.Padding(7);
             this.lblAverage.Name = "lblAverage";
             this.lblAverage.Size = new System.Drawing.Size(39, 13);
@@ -229,7 +228,7 @@
             // lblVariance
             // 
             this.lblVariance.AutoSize = true;
-            this.lblVariance.Location = new System.Drawing.Point(7, 34);
+            this.lblVariance.Location = new System.Drawing.Point(7, 7);
             this.lblVariance.Margin = new System.Windows.Forms.Padding(7);
             this.lblVariance.Name = "lblVariance";
             this.lblVariance.Size = new System.Drawing.Size(51, 13);
@@ -254,6 +253,7 @@
             // 
             // btnCalculate
             // 
+            this.btnCalculate.Enabled = false;
             this.btnCalculate.Location = new System.Drawing.Point(599, 170);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(75, 23);
