@@ -85,7 +85,8 @@ namespace GeneradorDeNumerosAleatorios
                 this.btnValorNuevo.Enabled = false;
                 this.txtGeneratedNums.Text = "";
             }
-            
+            this.txtAverage.Text = "";
+            this.txtVarience.Text = "";
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
@@ -115,6 +116,8 @@ namespace GeneradorDeNumerosAleatorios
                     this.txtGeneratedNums.Text = "";
                     rndList.Clear();
                     GenerateRandomCongruential(q);
+                    this.txtAverage.Text = "";
+                    this.txtVarience.Text = "";
                 }
             }
         }
@@ -140,6 +143,8 @@ namespace GeneradorDeNumerosAleatorios
             rndList.Add(rnd);
             rnd = (Math.Truncate(rnd * 10000) / 10000);
             txtGeneratedNums.AppendText(rndList.Count + ")\t" + rnd + Environment.NewLine);
+            this.txtAverage.Text = "";
+            this.txtVarience.Text = "";
         }
 
         private void CmbGenerator_SelectionChangeCommitted(object sender, EventArgs e)
